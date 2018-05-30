@@ -59,9 +59,12 @@ def generate_code(client_token, session_token, return_url, pending_call=None, fo
     else:
         return client_token, session_token, "", True
 
-def get_linked_messages(db_linked_session, last_message_id):
+def get_linked_messages(db_linked_session, last_message_id, purge = False):
     linked_messages_query = LinkedMessage.query.filter_by(session_id = db_linked_session.id)
     if last_message_id is not None:
+        if purge:
+            linked_messages_query.filter(LinkedMessage.id <= last_message_id).delete(synchronize_session = False)
+            db.session.commit()
         linked_messages_query = linked_messages_query.filter(LinkedMessage.id > last_message_id)
 
     messages = []
@@ -123,7 +126,7 @@ def link_messages(client_token, session_token, last_message_id=None):
         session_token = generate_init_session(linked_obj)
         db_linked_session = LinkedSession.query.filter_by(session_token = session_token, linked_id = linked_obj.id).first()
 
-    return client_token, session_token, get_linked_messages(db_linked_session, last_message_id), True
+    return client_token, session_token, get_linked_messages(db_linked_session, last_message_id, purge = True), True
 
 def wallet_messages(wallet_token, accounts, last_message_id=None):
     if not wallet_token:
@@ -132,6 +135,8 @@ def wallet_messages(wallet_token, accounts, last_message_id=None):
     #contains is hack for now, it should be equals
     wallet_messages_query = WalletMessage.query.filter_by(wallet_token = wallet_token).filter(WalletMessage.current_accounts.contains(accounts[0]))
     if last_message_id is not None:
+        wallet_messages_query.filter(WalletMessage.id <= last_message_id).delete(synchronize_session = False)
+        db.session.commit()
         wallet_messages_query = wallet_messages_query.filter(WalletMessage.id > last_message_id)
 
     messages = []
