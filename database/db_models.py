@@ -2,6 +2,7 @@ from sqlalchemy import func
 
 from database import db
 from .notification_models import *  # NOQA
+from .linker_models import *  # NOQA
 
 
 class VerificationCode(db.Model):

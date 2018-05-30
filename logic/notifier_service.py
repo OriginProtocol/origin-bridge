@@ -36,6 +36,7 @@ class Notification(Enum):
     BUYER_DISPUTE = 14
     SELLER_REVIEW = 15
     BUYER_REVIEW = 16
+    TRANSACTION_PENDING = 17
 
 
 notification_messages = {
@@ -54,7 +55,8 @@ notification_messages = {
     Notification.SELLER_DISPUTE: "Your item is in dispute",
     Notification.BUYER_DISPUTE: "Your purchase is in dispute",
     Notification.SELLER_REVIEW: "Your item is in review",
-    Notification.BUYER_REVIEW: "Your purchase is in review"
+    Notification.BUYER_REVIEW: "Your purchase is in review",
+    Notification.TRANSACTION_PENDING: "There is a transaction pending"
 }
 
 require_verified_messages = ()  # list of types in here
@@ -108,20 +110,22 @@ def send_fcm_notification(message, endpoint):
             message_title=settings.FCM_TITLE,
             message_body=message)
 
+def send_single_notification(notification_endpoint, notification_type, data):
+    notify_message = notification_messages[notification_type].format(
+        **data)
+    if notification_endpoint.type == EthNotificationTypes.APN:
+        # send apn notification here
+        send_apn_notification(notify_message, notification_endpoint)
+    elif notification_endpoint.type == EthNotificationTypes.FCM:
+        # send FCM notification here
+        send_fcm_notification(notify_message, notification_endpoint)
+
 
 def send_notification(notify_address, notification_type, **data):
     for notification_endpoint in EthNotificationEndpoint.query.filter_by(
             eth_address=notify_address, active=True):
-        notify_message = notification_messages[notification_type].format(
-            **data)
-        if notification_endpoint.type == EthNotificationTypes.APN:
-            # send apn notification here
-            send_apn_notification(notify_message, notification_endpoint)
-        elif notification_endpoint.type == EthNotificationTypes.FCM:
-            # send FCM notification here
-            send_fcm_notification(notify_message, notification_endpoint)
-
-
+        send_single_notification(notification_endpoint, notification_type, data)
+        
 def get_listing_picture(listing_obj, index=0):
     data = IPFSHelper().file_from_hash(listing_obj.ipfs_hash, root_attr='data')
     if data:
