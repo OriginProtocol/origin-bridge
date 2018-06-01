@@ -222,6 +222,13 @@ def wallet_called(wallet_token, call_id, session_token, result):
     db.session.commit()
     return True
 
+def unlink(client_token):
+    unlinked = LinkedTokens.query.filter_by(client_token=client_token).first()
+    if not unlinked or not unlinked.linked:
+        return True
 
-
+    unlinked.linked = False
+    db.session.add(unlinked)
+    db.session.commit()
+    return True
 

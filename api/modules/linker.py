@@ -116,6 +116,21 @@ class LinkWallet(Resource):
             request_schema=LinkWalletRequest,
             response_schema=LinkWalletResponse)
 
+class UnlinkRequest(StandardRequest):
+    pass
+
+class UnlinkResponse(StandardResponse):
+    success = fields.Boolean()
+
+class Unlink(Resource):
+    def post(self):
+        return handle_request(
+            data=request.json,
+            handler=cookies_handler(linker_service.unlink, cookies_def, "success"),
+            request_schema=UnlinkRequest,
+            response_schema=UnlinkResponse)
+
+
 resources = {
     # 'hello-world-path': HelloWorldResource
     'generate-code': GenerateCode,
@@ -123,5 +138,6 @@ resources = {
     'wallet-messages':WalletMessages,
     'call-wallet':CallWallet,
     'wallet-called':WalletCalled,
-    'link-wallet':LinkWallet
+    'link-wallet':LinkWallet,
+    "unlink":Unlink
 }
