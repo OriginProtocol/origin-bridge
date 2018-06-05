@@ -1,8 +1,8 @@
-"""empty message
+"""Linker Tables
 
-Revision ID: 2f65e8514b92
-Revises: 3c046fce5916
-Create Date: 2018-05-26 13:48:01.300733
+Revision ID: 64253239b326
+Revises: 095a740dd6bc
+Create Date: 2018-06-04 14:29:55.184947
 
 """
 from alembic import op
@@ -10,8 +10,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '2f65e8514b92'
-down_revision = '3c046fce5916'
+revision = '64253239b326'
+down_revision = '095a740dd6bc'
 branch_labels = None
 depends_on = None
 
@@ -41,7 +41,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('wallet_token', sa.String(length=255), nullable=True),
     sa.Column('current_accounts', sa.String(length=255), nullable=True),
-    sa.Column('type', sa.Enum('NETWORK', 'ACCOUNTS', 'CALL', 'CALL_RESPONSE', name='messagetypes'), nullable=True),
+    sa.Column('type', sa.Enum('NETWORK', 'ACCOUNTS', 'CALL', 'CALL_RESPONSE', 'LOGOUT', name='messagetypes'), nullable=True),
     sa.Column('data', sa.JSON(), nullable=True),
     sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=True),
     sa.PrimaryKeyConstraint('id')
@@ -58,7 +58,7 @@ def upgrade():
     op.create_table('linked_message',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('session_id', sa.Integer(), nullable=False),
-    sa.Column('type', sa.Enum('NETWORK', 'ACCOUNTS', 'CALL', 'CALL_RESPONSE', name='messagetypes'), nullable=True),
+    sa.Column('type', sa.Enum('NETWORK', 'ACCOUNTS', 'CALL', 'CALL_RESPONSE', 'LOGOUT', name='messagetypes'), nullable=True),
     sa.Column('data', sa.JSON(), nullable=True),
     sa.Column('sent', sa.Boolean(), nullable=True),
     sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=True),

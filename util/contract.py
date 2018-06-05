@@ -9,9 +9,7 @@ from eth_utils import to_checksum_address
 from config import settings
 from enum import Enum
 
-
 class ContractHelper:
-
     def __init__(self, web3=None):
         if web3:
             self.web3 = web3
@@ -118,6 +116,9 @@ class ContractHelper:
 
 def get_contract_internal_name(contract):
     # create a 40 byte placeholder used in linked contracts
-    contract_slice = contract[:36]
+    contract_slice = get_contract_link_name(contract)
     return "__{name}{suffix}".format(name=contract_slice,
                                      suffix=(38 - len(contract_slice)) * '_')
+def get_contract_link_name(contract):
+    return contract[:36]
+
