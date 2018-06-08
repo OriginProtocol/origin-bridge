@@ -6,6 +6,7 @@ from .notifier_service import Notification, EthNotificationEndpoint, send_single
 from util.contract import ContractHelper
 from util.ipfs import IPFSHelper
 from util.time_ import utcnow
+from util.transaction_dissector import dissect_transaction
 import datetime
 from config import settings
 from enum import Enum
@@ -50,6 +51,10 @@ def generate_code(client_token, session_token, return_url, pending_call=None, fo
 
     if pending_call and not linked_obj.linked:
         pending_call["session_token"] = session_token
+        if len(pending_call.get("call", [])) > 1 and pending_call["call"][1].get("txn_object"):
+            pending_call["meta"] = dissect_transaction(None, pending_call["call"][1]["txn_object"])
+        elif "meta" in pending_call:
+            del pending_call["meta"]
         linked_obj.pending_call = pending_call
         db.session.add(linked_obj)
         db.session.commit()
@@ -145,6 +150,7 @@ def wallet_messages(wallet_token, accounts, last_message_id=None):
         message = {'type':message_type.name, 'id':db_message.id}
         if message_type == MessageTypes.CALL:
             message['call'] = db_message.data['call']
+            message['meta'] = db_message.data['meta']
             message['call_id'] = db_message.data['call_id']
             if "session_token" in db_message.data:
                 message['session_token'] = db_message.data['session_token']
@@ -188,8 +194,14 @@ def call_wallet(client_token, session_token, accounts, call_id, call, return_url
         return False
     session_obj = LinkedSession.query.filter_by(linked_id = linked_obj.id, session_token = session_token).first()
 
+    if len(call) > 1:
+        meta = dissect_transaction(linked_obj.current_rpc, call[1]["txn_object"])
+    else:
+        meta = None
+
     call_data = {"call_id":call_id,
                 "call":call,
+                "meta":meta,
                 "session_token":session_obj.session_token}
 
     if return_url:
@@ -202,7 +214,11 @@ def call_wallet(client_token, session_token, accounts, call_id, call, return_url
     # TODO: sending this only to verified addresses
     eth_address = Web3.toChecksumAddress(accounts[0])
     endpoint = EthNotificationEndpoint.query.filter_by(eth_address=eth_address, device_token=linked_obj.wallet_token, active=True).first()
-    send_single_notification(endpoint, Notification.TRANSACTION_PENDING, {})
+
+    if 'info' in meta:
+        send_single_notification(endpoint, Notification.INFO_TRANSACTION_PENDING, meta['info'])
+    else:
+        send_single_notification(endpoint, Notification.TRANSACTION_PENDING, {})
     return True
 
 def wallet_called(wallet_token, call_id, session_token, result):

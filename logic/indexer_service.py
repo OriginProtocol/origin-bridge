@@ -39,7 +39,7 @@ class DatabaseIndexer():
         """
         Creates a new or updates an existing Listing row in the database.
         """
-        listing_obj = Listing.query .filter_by(
+        listing_obj = Listing.query.filter_by(
             contract_address=listing_data['contract_address']).first()
 
         # Load IPFS data. Note: we filter out pictures since those should

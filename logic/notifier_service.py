@@ -37,6 +37,7 @@ class Notification(Enum):
     SELLER_REVIEW = 15
     BUYER_REVIEW = 16
     TRANSACTION_PENDING = 17
+    INFO_TRANSACTION_PENDING = 17
 
 
 notification_messages = {
@@ -56,7 +57,9 @@ notification_messages = {
     Notification.BUYER_DISPUTE: "Your purchase is in dispute",
     Notification.SELLER_REVIEW: "Your item is in review",
     Notification.BUYER_REVIEW: "Your purchase is in review",
-    Notification.TRANSACTION_PENDING: "There is a transaction pending"
+    Notification.TRANSACTION_PENDING: "There is a transaction pending",
+    Notification.INFO_TRANSACTION_PENDING: {"title": "{action} {name} pending",
+        "body": "Please approve your {action} of {name}"}
 }
 
 require_verified_messages = ()  # list of types in here
@@ -111,8 +114,16 @@ def send_fcm_notification(message, endpoint):
             message_body=message)
 
 def send_single_notification(notification_endpoint, notification_type, data):
-    notify_message = notification_messages[notification_type].format(
-        **data)
+    message = notification_messages[notification_type]
+
+    if isinstance(message, dict):
+        message = dict(message) # make copy
+        for k in message:
+            message[k] = message[k].format(**data)
+        notify_message = message
+    else:
+        notify_message = message.format(**data)
+
     if notification_endpoint.type == EthNotificationTypes.APN:
         # send apn notification here
         send_apn_notification(notify_message, notification_endpoint)

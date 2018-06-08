@@ -5,23 +5,28 @@ from web3.contract import Contract
 from web3.middleware import geth_poa_middleware
 from eth_abi import decode_single, decode_abi
 from eth_utils import to_checksum_address
+import ntpath, glob
 
 from config import settings
 from enum import Enum
 
 class ContractHelper:
-    def __init__(self, web3=None):
+    def __init__(self, web3=None, rpc=None):
         if web3:
             self.web3 = web3
-        elif settings.RPC_PROTOCOL == 'https':
-            self.web3 = Web3(HTTPProvider(settings.RPC_SERVER))
+        else:
+            if not rpc:
+                rpc = settings.RPC_SERVER
+            rpc_l = rpc.lower()
+            if rpc_l.startswith("http://") or rpc_l.startswith("https://"):
+                self.web3 = Web3(HTTPProvider(rpc))
 
-            # add geth poa middleware to handle overflowing extraData field
-            # https://ethereum.stackexchange.com/a/44131
-            self.web3.middleware_stack.inject(geth_poa_middleware, layer=0)
-        elif settings.RPC_PROTOCOL == 'wss':
-            self.web3 = Web3(WebsocketProvider(settings.RPC_SERVER))
-            self.web3.middleware_stack.inject(geth_poa_middleware, layer=0)
+                # add geth poa middleware to handle overflowing extraData field
+                # https://ethereum.stackexchange.com/a/44131
+                self.web3.middleware_stack.inject(geth_poa_middleware, layer=0)
+            elif rpc_l.startswith('wss://'):
+                self.web3 = Web3(WebsocketProvider(rpc))
+                self.web3.middleware_stack.inject(geth_poa_middleware, layer=0)
 
     def fetch_events(self, event_names, callback,
                      log_index, transaction_index,
@@ -81,6 +86,12 @@ class ContractHelper:
         return contract_interface['bytecode']
 
     @classmethod
+    def get_contract_deployed_bytecode(cls, contract_name):
+        with open("./contracts/{}.json".format(contract_name)) as f:
+            contract_interface = json.loads(f.read())
+        return contract_interface['deployedBytecode']
+
+    @classmethod
     def get_contract_enums(cls, contract_name, enum_name):
         with open("./contracts/{}.json".format(contract_name)) as f:
             contract_interface = json.loads(f.read())
@@ -94,6 +105,10 @@ class ContractHelper:
                         if members and isinstance(members, list):
                             return Enum(enum_name, " ".join(
                                 e["name"] for e in members), start=0)
+
+    @classmethod
+    def get_all_contracts(cls):
+        return [ntpath.splitext(ntpath.basename(p))[0] for p in glob.glob("./contracts/*.json")]
 
     @classmethod
     def convert_event_data(cls, event_type, data):

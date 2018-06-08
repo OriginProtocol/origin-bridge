@@ -334,14 +334,14 @@
         "absolutePath": "/Users/yupan/origin/origin-js/contracts/contracts/identity/ERC735.sol",
         "exportedSymbols": {
             "ERC735": [
-                1926
+                2081
             ]
         },
-        "id": 1927,
+        "id": 2082,
         "nodeType": "SourceUnit",
         "nodes": [
             {
-                "id": 1783,
+                "id": 1938,
                 "literals": [
                     "solidity",
                     "^",
@@ -349,7 +349,7 @@
                     ".23"
                 ],
                 "nodeType": "PragmaDirective",
-                "src": "0:24:12"
+                "src": "0:24:13"
             },
             {
                 "baseContracts": [],
@@ -357,9 +357,9 @@
                 "contractKind": "contract",
                 "documentation": null,
                 "fullyImplemented": false,
-                "id": 1926,
+                "id": 2081,
                 "linearizedBaseContracts": [
-                    1926
+                    2081
                 ],
                 "name": "ERC735",
                 "nodeType": "ContractDefinition",
@@ -367,21 +367,21 @@
                     {
                         "anonymous": false,
                         "documentation": null,
-                        "id": 1799,
+                        "id": 1954,
                         "name": "ClaimRequested",
                         "nodeType": "EventDefinition",
                         "parameters": {
-                            "id": 1798,
+                            "id": 1953,
                             "nodeType": "ParameterList",
                             "parameters": [
                                 {
                                     "constant": false,
-                                    "id": 1785,
+                                    "id": 1940,
                                     "indexed": true,
                                     "name": "claimRequestId",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1799,
-                                    "src": "70:30:12",
+                                    "scope": 1954,
+                                    "src": "70:30:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -389,10 +389,10 @@
                                         "typeString": "uint256"
                                     },
                                     "typeName": {
-                                        "id": 1784,
+                                        "id": 1939,
                                         "name": "uint256",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "70:7:12",
+                                        "src": "70:7:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_uint256",
                                             "typeString": "uint256"
@@ -403,12 +403,12 @@
                                 },
                                 {
                                     "constant": false,
-                                    "id": 1787,
+                                    "id": 1942,
                                     "indexed": true,
                                     "name": "claimType",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1799,
-                                    "src": "102:25:12",
+                                    "scope": 1954,
+                                    "src": "102:25:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -416,10 +416,10 @@
                                         "typeString": "uint256"
                                     },
                                     "typeName": {
-                                        "id": 1786,
+                                        "id": 1941,
                                         "name": "uint256",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "102:7:12",
+                                        "src": "102:7:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_uint256",
                                             "typeString": "uint256"
@@ -430,12 +430,12 @@
                                 },
                                 {
                                     "constant": false,
-                                    "id": 1789,
+                                    "id": 1944,
                                     "indexed": false,
                                     "name": "scheme",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1799,
-                                    "src": "129:14:12",
+                                    "scope": 1954,
+                                    "src": "129:14:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -443,10 +443,10 @@
                                         "typeString": "uint256"
                                     },
                                     "typeName": {
-                                        "id": 1788,
+                                        "id": 1943,
                                         "name": "uint256",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "129:7:12",
+                                        "src": "129:7:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_uint256",
                                             "typeString": "uint256"
@@ -457,12 +457,12 @@
                                 },
                                 {
                                     "constant": false,
-                                    "id": 1791,
+                                    "id": 1946,
                                     "indexed": true,
                                     "name": "issuer",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1799,
-                                    "src": "145:22:12",
+                                    "scope": 1954,
+                                    "src": "145:22:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -470,10 +470,10 @@
                                         "typeString": "address"
                                     },
                                     "typeName": {
-                                        "id": 1790,
+                                        "id": 1945,
                                         "name": "address",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "145:7:12",
+                                        "src": "145:7:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_address",
                                             "typeString": "address"
@@ -484,12 +484,12 @@
                                 },
                                 {
                                     "constant": false,
-                                    "id": 1793,
+                                    "id": 1948,
                                     "indexed": false,
                                     "name": "signature",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1799,
-                                    "src": "169:15:12",
+                                    "scope": 1954,
+                                    "src": "169:15:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -497,10 +497,10 @@
                                         "typeString": "bytes"
                                     },
                                     "typeName": {
-                                        "id": 1792,
+                                        "id": 1947,
                                         "name": "bytes",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "169:5:12",
+                                        "src": "169:5:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_bytes_storage_ptr",
                                             "typeString": "bytes"
@@ -511,12 +511,12 @@
                                 },
                                 {
                                     "constant": false,
-                                    "id": 1795,
+                                    "id": 1950,
                                     "indexed": false,
                                     "name": "data",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1799,
-                                    "src": "186:10:12",
+                                    "scope": 1954,
+                                    "src": "186:10:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -524,10 +524,10 @@
                                         "typeString": "bytes"
                                     },
                                     "typeName": {
-                                        "id": 1794,
+                                        "id": 1949,
                                         "name": "bytes",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "186:5:12",
+                                        "src": "186:5:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_bytes_storage_ptr",
                                             "typeString": "bytes"
@@ -538,12 +538,12 @@
                                 },
                                 {
                                     "constant": false,
-                                    "id": 1797,
+                                    "id": 1952,
                                     "indexed": false,
                                     "name": "uri",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1799,
-                                    "src": "198:10:12",
+                                    "scope": 1954,
+                                    "src": "198:10:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -551,10 +551,10 @@
                                         "typeString": "string"
                                     },
                                     "typeName": {
-                                        "id": 1796,
+                                        "id": 1951,
                                         "name": "string",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "198:6:12",
+                                        "src": "198:6:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_string_storage_ptr",
                                             "typeString": "string"
@@ -564,28 +564,28 @@
                                     "visibility": "internal"
                                 }
                             ],
-                            "src": "69:140:12"
+                            "src": "69:140:13"
                         },
-                        "src": "49:161:12"
+                        "src": "49:161:13"
                     },
                     {
                         "anonymous": false,
                         "documentation": null,
-                        "id": 1815,
+                        "id": 1970,
                         "name": "ClaimAdded",
                         "nodeType": "EventDefinition",
                         "parameters": {
-                            "id": 1814,
+                            "id": 1969,
                             "nodeType": "ParameterList",
                             "parameters": [
                                 {
                                     "constant": false,
-                                    "id": 1801,
+                                    "id": 1956,
                                     "indexed": true,
                                     "name": "claimId",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1815,
-                                    "src": "231:23:12",
+                                    "scope": 1970,
+                                    "src": "231:23:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -593,10 +593,10 @@
                                         "typeString": "bytes32"
                                     },
                                     "typeName": {
-                                        "id": 1800,
+                                        "id": 1955,
                                         "name": "bytes32",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "231:7:12",
+                                        "src": "231:7:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_bytes32",
                                             "typeString": "bytes32"
@@ -607,12 +607,12 @@
                                 },
                                 {
                                     "constant": false,
-                                    "id": 1803,
+                                    "id": 1958,
                                     "indexed": true,
                                     "name": "claimType",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1815,
-                                    "src": "256:25:12",
+                                    "scope": 1970,
+                                    "src": "256:25:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -620,10 +620,10 @@
                                         "typeString": "uint256"
                                     },
                                     "typeName": {
-                                        "id": 1802,
+                                        "id": 1957,
                                         "name": "uint256",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "256:7:12",
+                                        "src": "256:7:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_uint256",
                                             "typeString": "uint256"
@@ -634,12 +634,12 @@
                                 },
                                 {
                                     "constant": false,
-                                    "id": 1805,
+                                    "id": 1960,
                                     "indexed": true,
                                     "name": "issuer",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1815,
-                                    "src": "283:22:12",
+                                    "scope": 1970,
+                                    "src": "283:22:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -647,10 +647,10 @@
                                         "typeString": "address"
                                     },
                                     "typeName": {
-                                        "id": 1804,
+                                        "id": 1959,
                                         "name": "address",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "283:7:12",
+                                        "src": "283:7:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_address",
                                             "typeString": "address"
@@ -661,12 +661,12 @@
                                 },
                                 {
                                     "constant": false,
-                                    "id": 1807,
+                                    "id": 1962,
                                     "indexed": false,
                                     "name": "signatureType",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1815,
-                                    "src": "307:21:12",
+                                    "scope": 1970,
+                                    "src": "307:21:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -674,10 +674,10 @@
                                         "typeString": "uint256"
                                     },
                                     "typeName": {
-                                        "id": 1806,
+                                        "id": 1961,
                                         "name": "uint256",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "307:7:12",
+                                        "src": "307:7:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_uint256",
                                             "typeString": "uint256"
@@ -688,12 +688,12 @@
                                 },
                                 {
                                     "constant": false,
-                                    "id": 1809,
+                                    "id": 1964,
                                     "indexed": false,
                                     "name": "signature",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1815,
-                                    "src": "330:17:12",
+                                    "scope": 1970,
+                                    "src": "330:17:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -701,10 +701,10 @@
                                         "typeString": "bytes32"
                                     },
                                     "typeName": {
-                                        "id": 1808,
+                                        "id": 1963,
                                         "name": "bytes32",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "330:7:12",
+                                        "src": "330:7:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_bytes32",
                                             "typeString": "bytes32"
@@ -715,12 +715,12 @@
                                 },
                                 {
                                     "constant": false,
-                                    "id": 1811,
+                                    "id": 1966,
                                     "indexed": false,
                                     "name": "claim",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1815,
-                                    "src": "349:11:12",
+                                    "scope": 1970,
+                                    "src": "349:11:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -728,10 +728,10 @@
                                         "typeString": "bytes"
                                     },
                                     "typeName": {
-                                        "id": 1810,
+                                        "id": 1965,
                                         "name": "bytes",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "349:5:12",
+                                        "src": "349:5:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_bytes_storage_ptr",
                                             "typeString": "bytes"
@@ -742,12 +742,12 @@
                                 },
                                 {
                                     "constant": false,
-                                    "id": 1813,
+                                    "id": 1968,
                                     "indexed": false,
                                     "name": "uri",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1815,
-                                    "src": "362:10:12",
+                                    "scope": 1970,
+                                    "src": "362:10:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -755,10 +755,10 @@
                                         "typeString": "string"
                                     },
                                     "typeName": {
-                                        "id": 1812,
+                                        "id": 1967,
                                         "name": "string",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "362:6:12",
+                                        "src": "362:6:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_string_storage_ptr",
                                             "typeString": "string"
@@ -768,28 +768,28 @@
                                     "visibility": "internal"
                                 }
                             ],
-                            "src": "230:143:12"
+                            "src": "230:143:13"
                         },
-                        "src": "214:160:12"
+                        "src": "214:160:13"
                     },
                     {
                         "anonymous": false,
                         "documentation": null,
-                        "id": 1831,
+                        "id": 1986,
                         "name": "ClaimAdded",
                         "nodeType": "EventDefinition",
                         "parameters": {
-                            "id": 1830,
+                            "id": 1985,
                             "nodeType": "ParameterList",
                             "parameters": [
                                 {
                                     "constant": false,
-                                    "id": 1817,
+                                    "id": 1972,
                                     "indexed": true,
                                     "name": "claimId",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1831,
-                                    "src": "396:23:12",
+                                    "scope": 1986,
+                                    "src": "396:23:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -797,10 +797,10 @@
                                         "typeString": "bytes32"
                                     },
                                     "typeName": {
-                                        "id": 1816,
+                                        "id": 1971,
                                         "name": "bytes32",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "396:7:12",
+                                        "src": "396:7:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_bytes32",
                                             "typeString": "bytes32"
@@ -811,12 +811,12 @@
                                 },
                                 {
                                     "constant": false,
-                                    "id": 1819,
+                                    "id": 1974,
                                     "indexed": true,
                                     "name": "claimType",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1831,
-                                    "src": "421:25:12",
+                                    "scope": 1986,
+                                    "src": "421:25:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -824,10 +824,10 @@
                                         "typeString": "uint256"
                                     },
                                     "typeName": {
-                                        "id": 1818,
+                                        "id": 1973,
                                         "name": "uint256",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "421:7:12",
+                                        "src": "421:7:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_uint256",
                                             "typeString": "uint256"
@@ -838,12 +838,12 @@
                                 },
                                 {
                                     "constant": false,
-                                    "id": 1821,
+                                    "id": 1976,
                                     "indexed": false,
                                     "name": "scheme",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1831,
-                                    "src": "448:14:12",
+                                    "scope": 1986,
+                                    "src": "448:14:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -851,10 +851,10 @@
                                         "typeString": "uint256"
                                     },
                                     "typeName": {
-                                        "id": 1820,
+                                        "id": 1975,
                                         "name": "uint256",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "448:7:12",
+                                        "src": "448:7:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_uint256",
                                             "typeString": "uint256"
@@ -865,12 +865,12 @@
                                 },
                                 {
                                     "constant": false,
-                                    "id": 1823,
+                                    "id": 1978,
                                     "indexed": true,
                                     "name": "issuer",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1831,
-                                    "src": "464:22:12",
+                                    "scope": 1986,
+                                    "src": "464:22:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -878,10 +878,10 @@
                                         "typeString": "address"
                                     },
                                     "typeName": {
-                                        "id": 1822,
+                                        "id": 1977,
                                         "name": "address",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "464:7:12",
+                                        "src": "464:7:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_address",
                                             "typeString": "address"
@@ -892,12 +892,12 @@
                                 },
                                 {
                                     "constant": false,
-                                    "id": 1825,
+                                    "id": 1980,
                                     "indexed": false,
                                     "name": "signature",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1831,
-                                    "src": "488:15:12",
+                                    "scope": 1986,
+                                    "src": "488:15:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -905,10 +905,10 @@
                                         "typeString": "bytes"
                                     },
                                     "typeName": {
-                                        "id": 1824,
+                                        "id": 1979,
                                         "name": "bytes",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "488:5:12",
+                                        "src": "488:5:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_bytes_storage_ptr",
                                             "typeString": "bytes"
@@ -919,12 +919,12 @@
                                 },
                                 {
                                     "constant": false,
-                                    "id": 1827,
+                                    "id": 1982,
                                     "indexed": false,
                                     "name": "data",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1831,
-                                    "src": "505:10:12",
+                                    "scope": 1986,
+                                    "src": "505:10:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -932,10 +932,10 @@
                                         "typeString": "bytes"
                                     },
                                     "typeName": {
-                                        "id": 1826,
+                                        "id": 1981,
                                         "name": "bytes",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "505:5:12",
+                                        "src": "505:5:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_bytes_storage_ptr",
                                             "typeString": "bytes"
@@ -946,12 +946,12 @@
                                 },
                                 {
                                     "constant": false,
-                                    "id": 1829,
+                                    "id": 1984,
                                     "indexed": false,
                                     "name": "uri",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1831,
-                                    "src": "517:10:12",
+                                    "scope": 1986,
+                                    "src": "517:10:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -959,10 +959,10 @@
                                         "typeString": "string"
                                     },
                                     "typeName": {
-                                        "id": 1828,
+                                        "id": 1983,
                                         "name": "string",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "517:6:12",
+                                        "src": "517:6:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_string_storage_ptr",
                                             "typeString": "string"
@@ -972,28 +972,28 @@
                                     "visibility": "internal"
                                 }
                             ],
-                            "src": "395:133:12"
+                            "src": "395:133:13"
                         },
-                        "src": "379:150:12"
+                        "src": "379:150:13"
                     },
                     {
                         "anonymous": false,
                         "documentation": null,
-                        "id": 1847,
+                        "id": 2002,
                         "name": "ClaimRemoved",
                         "nodeType": "EventDefinition",
                         "parameters": {
-                            "id": 1846,
+                            "id": 2001,
                             "nodeType": "ParameterList",
                             "parameters": [
                                 {
                                     "constant": false,
-                                    "id": 1833,
+                                    "id": 1988,
                                     "indexed": true,
                                     "name": "claimId",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1847,
-                                    "src": "553:23:12",
+                                    "scope": 2002,
+                                    "src": "553:23:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -1001,10 +1001,10 @@
                                         "typeString": "bytes32"
                                     },
                                     "typeName": {
-                                        "id": 1832,
+                                        "id": 1987,
                                         "name": "bytes32",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "553:7:12",
+                                        "src": "553:7:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_bytes32",
                                             "typeString": "bytes32"
@@ -1015,12 +1015,12 @@
                                 },
                                 {
                                     "constant": false,
-                                    "id": 1835,
+                                    "id": 1990,
                                     "indexed": true,
                                     "name": "claimType",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1847,
-                                    "src": "578:25:12",
+                                    "scope": 2002,
+                                    "src": "578:25:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -1028,10 +1028,10 @@
                                         "typeString": "uint256"
                                     },
                                     "typeName": {
-                                        "id": 1834,
+                                        "id": 1989,
                                         "name": "uint256",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "578:7:12",
+                                        "src": "578:7:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_uint256",
                                             "typeString": "uint256"
@@ -1042,12 +1042,12 @@
                                 },
                                 {
                                     "constant": false,
-                                    "id": 1837,
+                                    "id": 1992,
                                     "indexed": false,
                                     "name": "scheme",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1847,
-                                    "src": "605:14:12",
+                                    "scope": 2002,
+                                    "src": "605:14:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -1055,10 +1055,10 @@
                                         "typeString": "uint256"
                                     },
                                     "typeName": {
-                                        "id": 1836,
+                                        "id": 1991,
                                         "name": "uint256",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "605:7:12",
+                                        "src": "605:7:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_uint256",
                                             "typeString": "uint256"
@@ -1069,12 +1069,12 @@
                                 },
                                 {
                                     "constant": false,
-                                    "id": 1839,
+                                    "id": 1994,
                                     "indexed": true,
                                     "name": "issuer",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1847,
-                                    "src": "621:22:12",
+                                    "scope": 2002,
+                                    "src": "621:22:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -1082,10 +1082,10 @@
                                         "typeString": "address"
                                     },
                                     "typeName": {
-                                        "id": 1838,
+                                        "id": 1993,
                                         "name": "address",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "621:7:12",
+                                        "src": "621:7:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_address",
                                             "typeString": "address"
@@ -1096,12 +1096,12 @@
                                 },
                                 {
                                     "constant": false,
-                                    "id": 1841,
+                                    "id": 1996,
                                     "indexed": false,
                                     "name": "signature",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1847,
-                                    "src": "645:15:12",
+                                    "scope": 2002,
+                                    "src": "645:15:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -1109,10 +1109,10 @@
                                         "typeString": "bytes"
                                     },
                                     "typeName": {
-                                        "id": 1840,
+                                        "id": 1995,
                                         "name": "bytes",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "645:5:12",
+                                        "src": "645:5:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_bytes_storage_ptr",
                                             "typeString": "bytes"
@@ -1123,12 +1123,12 @@
                                 },
                                 {
                                     "constant": false,
-                                    "id": 1843,
+                                    "id": 1998,
                                     "indexed": false,
                                     "name": "data",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1847,
-                                    "src": "662:10:12",
+                                    "scope": 2002,
+                                    "src": "662:10:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -1136,10 +1136,10 @@
                                         "typeString": "bytes"
                                     },
                                     "typeName": {
-                                        "id": 1842,
+                                        "id": 1997,
                                         "name": "bytes",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "662:5:12",
+                                        "src": "662:5:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_bytes_storage_ptr",
                                             "typeString": "bytes"
@@ -1150,12 +1150,12 @@
                                 },
                                 {
                                     "constant": false,
-                                    "id": 1845,
+                                    "id": 2000,
                                     "indexed": false,
                                     "name": "uri",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1847,
-                                    "src": "674:10:12",
+                                    "scope": 2002,
+                                    "src": "674:10:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -1163,10 +1163,10 @@
                                         "typeString": "string"
                                     },
                                     "typeName": {
-                                        "id": 1844,
+                                        "id": 1999,
                                         "name": "string",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "674:6:12",
+                                        "src": "674:6:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_string_storage_ptr",
                                             "typeString": "string"
@@ -1176,28 +1176,28 @@
                                     "visibility": "internal"
                                 }
                             ],
-                            "src": "552:133:12"
+                            "src": "552:133:13"
                         },
-                        "src": "534:152:12"
+                        "src": "534:152:13"
                     },
                     {
                         "anonymous": false,
                         "documentation": null,
-                        "id": 1863,
+                        "id": 2018,
                         "name": "ClaimChanged",
                         "nodeType": "EventDefinition",
                         "parameters": {
-                            "id": 1862,
+                            "id": 2017,
                             "nodeType": "ParameterList",
                             "parameters": [
                                 {
                                     "constant": false,
-                                    "id": 1849,
+                                    "id": 2004,
                                     "indexed": true,
                                     "name": "claimId",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1863,
-                                    "src": "710:23:12",
+                                    "scope": 2018,
+                                    "src": "710:23:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -1205,10 +1205,10 @@
                                         "typeString": "bytes32"
                                     },
                                     "typeName": {
-                                        "id": 1848,
+                                        "id": 2003,
                                         "name": "bytes32",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "710:7:12",
+                                        "src": "710:7:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_bytes32",
                                             "typeString": "bytes32"
@@ -1219,12 +1219,12 @@
                                 },
                                 {
                                     "constant": false,
-                                    "id": 1851,
+                                    "id": 2006,
                                     "indexed": true,
                                     "name": "claimType",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1863,
-                                    "src": "735:25:12",
+                                    "scope": 2018,
+                                    "src": "735:25:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -1232,10 +1232,10 @@
                                         "typeString": "uint256"
                                     },
                                     "typeName": {
-                                        "id": 1850,
+                                        "id": 2005,
                                         "name": "uint256",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "735:7:12",
+                                        "src": "735:7:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_uint256",
                                             "typeString": "uint256"
@@ -1246,12 +1246,12 @@
                                 },
                                 {
                                     "constant": false,
-                                    "id": 1853,
+                                    "id": 2008,
                                     "indexed": false,
                                     "name": "scheme",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1863,
-                                    "src": "762:14:12",
+                                    "scope": 2018,
+                                    "src": "762:14:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -1259,10 +1259,10 @@
                                         "typeString": "uint256"
                                     },
                                     "typeName": {
-                                        "id": 1852,
+                                        "id": 2007,
                                         "name": "uint256",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "762:7:12",
+                                        "src": "762:7:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_uint256",
                                             "typeString": "uint256"
@@ -1273,12 +1273,12 @@
                                 },
                                 {
                                     "constant": false,
-                                    "id": 1855,
+                                    "id": 2010,
                                     "indexed": true,
                                     "name": "issuer",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1863,
-                                    "src": "778:22:12",
+                                    "scope": 2018,
+                                    "src": "778:22:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -1286,10 +1286,10 @@
                                         "typeString": "address"
                                     },
                                     "typeName": {
-                                        "id": 1854,
+                                        "id": 2009,
                                         "name": "address",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "778:7:12",
+                                        "src": "778:7:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_address",
                                             "typeString": "address"
@@ -1300,12 +1300,12 @@
                                 },
                                 {
                                     "constant": false,
-                                    "id": 1857,
+                                    "id": 2012,
                                     "indexed": false,
                                     "name": "signature",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1863,
-                                    "src": "802:15:12",
+                                    "scope": 2018,
+                                    "src": "802:15:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -1313,10 +1313,10 @@
                                         "typeString": "bytes"
                                     },
                                     "typeName": {
-                                        "id": 1856,
+                                        "id": 2011,
                                         "name": "bytes",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "802:5:12",
+                                        "src": "802:5:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_bytes_storage_ptr",
                                             "typeString": "bytes"
@@ -1327,12 +1327,12 @@
                                 },
                                 {
                                     "constant": false,
-                                    "id": 1859,
+                                    "id": 2014,
                                     "indexed": false,
                                     "name": "data",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1863,
-                                    "src": "819:10:12",
+                                    "scope": 2018,
+                                    "src": "819:10:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -1340,10 +1340,10 @@
                                         "typeString": "bytes"
                                     },
                                     "typeName": {
-                                        "id": 1858,
+                                        "id": 2013,
                                         "name": "bytes",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "819:5:12",
+                                        "src": "819:5:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_bytes_storage_ptr",
                                             "typeString": "bytes"
@@ -1354,12 +1354,12 @@
                                 },
                                 {
                                     "constant": false,
-                                    "id": 1861,
+                                    "id": 2016,
                                     "indexed": false,
                                     "name": "uri",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1863,
-                                    "src": "831:10:12",
+                                    "scope": 2018,
+                                    "src": "831:10:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -1367,10 +1367,10 @@
                                         "typeString": "string"
                                     },
                                     "typeName": {
-                                        "id": 1860,
+                                        "id": 2015,
                                         "name": "string",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "831:6:12",
+                                        "src": "831:6:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_string_storage_ptr",
                                             "typeString": "string"
@@ -1380,21 +1380,21 @@
                                     "visibility": "internal"
                                 }
                             ],
-                            "src": "709:133:12"
+                            "src": "709:133:13"
                         },
-                        "src": "691:152:12"
+                        "src": "691:152:13"
                     },
                     {
                         "canonicalName": "ERC735.Claim",
-                        "id": 1876,
+                        "id": 2031,
                         "members": [
                             {
                                 "constant": false,
-                                "id": 1865,
+                                "id": 2020,
                                 "name": "claimType",
                                 "nodeType": "VariableDeclaration",
-                                "scope": 1876,
-                                "src": "872:17:12",
+                                "scope": 2031,
+                                "src": "872:17:13",
                                 "stateVariable": false,
                                 "storageLocation": "default",
                                 "typeDescriptions": {
@@ -1402,10 +1402,10 @@
                                     "typeString": "uint256"
                                 },
                                 "typeName": {
-                                    "id": 1864,
+                                    "id": 2019,
                                     "name": "uint256",
                                     "nodeType": "ElementaryTypeName",
-                                    "src": "872:7:12",
+                                    "src": "872:7:13",
                                     "typeDescriptions": {
                                         "typeIdentifier": "t_uint256",
                                         "typeString": "uint256"
@@ -1416,11 +1416,11 @@
                             },
                             {
                                 "constant": false,
-                                "id": 1867,
+                                "id": 2022,
                                 "name": "scheme",
                                 "nodeType": "VariableDeclaration",
-                                "scope": 1876,
-                                "src": "899:14:12",
+                                "scope": 2031,
+                                "src": "899:14:13",
                                 "stateVariable": false,
                                 "storageLocation": "default",
                                 "typeDescriptions": {
@@ -1428,10 +1428,10 @@
                                     "typeString": "uint256"
                                 },
                                 "typeName": {
-                                    "id": 1866,
+                                    "id": 2021,
                                     "name": "uint256",
                                     "nodeType": "ElementaryTypeName",
-                                    "src": "899:7:12",
+                                    "src": "899:7:13",
                                     "typeDescriptions": {
                                         "typeIdentifier": "t_uint256",
                                         "typeString": "uint256"
@@ -1442,11 +1442,11 @@
                             },
                             {
                                 "constant": false,
-                                "id": 1869,
+                                "id": 2024,
                                 "name": "issuer",
                                 "nodeType": "VariableDeclaration",
-                                "scope": 1876,
-                                "src": "923:14:12",
+                                "scope": 2031,
+                                "src": "923:14:13",
                                 "stateVariable": false,
                                 "storageLocation": "default",
                                 "typeDescriptions": {
@@ -1454,10 +1454,10 @@
                                     "typeString": "address"
                                 },
                                 "typeName": {
-                                    "id": 1868,
+                                    "id": 2023,
                                     "name": "address",
                                     "nodeType": "ElementaryTypeName",
-                                    "src": "923:7:12",
+                                    "src": "923:7:13",
                                     "typeDescriptions": {
                                         "typeIdentifier": "t_address",
                                         "typeString": "address"
@@ -1468,11 +1468,11 @@
                             },
                             {
                                 "constant": false,
-                                "id": 1871,
+                                "id": 2026,
                                 "name": "signature",
                                 "nodeType": "VariableDeclaration",
-                                "scope": 1876,
-                                "src": "961:15:12",
+                                "scope": 2031,
+                                "src": "961:15:13",
                                 "stateVariable": false,
                                 "storageLocation": "default",
                                 "typeDescriptions": {
@@ -1480,10 +1480,10 @@
                                     "typeString": "bytes"
                                 },
                                 "typeName": {
-                                    "id": 1870,
+                                    "id": 2025,
                                     "name": "bytes",
                                     "nodeType": "ElementaryTypeName",
-                                    "src": "961:5:12",
+                                    "src": "961:5:13",
                                     "typeDescriptions": {
                                         "typeIdentifier": "t_bytes_storage_ptr",
                                         "typeString": "bytes"
@@ -1494,11 +1494,11 @@
                             },
                             {
                                 "constant": false,
-                                "id": 1873,
+                                "id": 2028,
                                 "name": "data",
                                 "nodeType": "VariableDeclaration",
-                                "scope": 1876,
-                                "src": "1021:10:12",
+                                "scope": 2031,
+                                "src": "1021:10:13",
                                 "stateVariable": false,
                                 "storageLocation": "default",
                                 "typeDescriptions": {
@@ -1506,10 +1506,10 @@
                                     "typeString": "bytes"
                                 },
                                 "typeName": {
-                                    "id": 1872,
+                                    "id": 2027,
                                     "name": "bytes",
                                     "nodeType": "ElementaryTypeName",
-                                    "src": "1021:5:12",
+                                    "src": "1021:5:13",
                                     "typeDescriptions": {
                                         "typeIdentifier": "t_bytes_storage_ptr",
                                         "typeString": "bytes"
@@ -1520,11 +1520,11 @@
                             },
                             {
                                 "constant": false,
-                                "id": 1875,
+                                "id": 2030,
                                 "name": "uri",
                                 "nodeType": "VariableDeclaration",
-                                "scope": 1876,
-                                "src": "1041:10:12",
+                                "scope": 2031,
+                                "src": "1041:10:13",
                                 "stateVariable": false,
                                 "storageLocation": "default",
                                 "typeDescriptions": {
@@ -1532,10 +1532,10 @@
                                     "typeString": "string"
                                 },
                                 "typeName": {
-                                    "id": 1874,
+                                    "id": 2029,
                                     "name": "string",
                                     "nodeType": "ElementaryTypeName",
-                                    "src": "1041:6:12",
+                                    "src": "1041:6:13",
                                     "typeDescriptions": {
                                         "typeIdentifier": "t_string_storage_ptr",
                                         "typeString": "string"
@@ -1547,14 +1547,14 @@
                         ],
                         "name": "Claim",
                         "nodeType": "StructDefinition",
-                        "scope": 1926,
-                        "src": "849:209:12",
+                        "scope": 2081,
+                        "src": "849:209:13",
                         "visibility": "public"
                     },
                     {
                         "body": null,
                         "documentation": null,
-                        "id": 1893,
+                        "id": 2048,
                         "implemented": false,
                         "isConstructor": false,
                         "isDeclaredConst": true,
@@ -1562,16 +1562,16 @@
                         "name": "getClaim",
                         "nodeType": "FunctionDefinition",
                         "parameters": {
-                            "id": 1879,
+                            "id": 2034,
                             "nodeType": "ParameterList",
                             "parameters": [
                                 {
                                     "constant": false,
-                                    "id": 1878,
+                                    "id": 2033,
                                     "name": "_claimId",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1893,
-                                    "src": "1082:16:12",
+                                    "scope": 2048,
+                                    "src": "1082:16:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -1579,10 +1579,10 @@
                                         "typeString": "bytes32"
                                     },
                                     "typeName": {
-                                        "id": 1877,
+                                        "id": 2032,
                                         "name": "bytes32",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "1082:7:12",
+                                        "src": "1082:7:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_bytes32",
                                             "typeString": "bytes32"
@@ -1592,20 +1592,20 @@
                                     "visibility": "internal"
                                 }
                             ],
-                            "src": "1081:18:12"
+                            "src": "1081:18:13"
                         },
                         "payable": false,
                         "returnParameters": {
-                            "id": 1892,
+                            "id": 2047,
                             "nodeType": "ParameterList",
                             "parameters": [
                                 {
                                     "constant": false,
-                                    "id": 1881,
+                                    "id": 2036,
                                     "name": "claimType",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1893,
-                                    "src": "1124:17:12",
+                                    "scope": 2048,
+                                    "src": "1124:17:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -1613,10 +1613,10 @@
                                         "typeString": "uint256"
                                     },
                                     "typeName": {
-                                        "id": 1880,
+                                        "id": 2035,
                                         "name": "uint256",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "1124:7:12",
+                                        "src": "1124:7:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_uint256",
                                             "typeString": "uint256"
@@ -1627,11 +1627,11 @@
                                 },
                                 {
                                     "constant": false,
-                                    "id": 1883,
+                                    "id": 2038,
                                     "name": "scheme",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1893,
-                                    "src": "1143:14:12",
+                                    "scope": 2048,
+                                    "src": "1143:14:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -1639,10 +1639,10 @@
                                         "typeString": "uint256"
                                     },
                                     "typeName": {
-                                        "id": 1882,
+                                        "id": 2037,
                                         "name": "uint256",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "1143:7:12",
+                                        "src": "1143:7:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_uint256",
                                             "typeString": "uint256"
@@ -1653,11 +1653,11 @@
                                 },
                                 {
                                     "constant": false,
-                                    "id": 1885,
+                                    "id": 2040,
                                     "name": "issuer",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1893,
-                                    "src": "1159:14:12",
+                                    "scope": 2048,
+                                    "src": "1159:14:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -1665,10 +1665,10 @@
                                         "typeString": "address"
                                     },
                                     "typeName": {
-                                        "id": 1884,
+                                        "id": 2039,
                                         "name": "address",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "1159:7:12",
+                                        "src": "1159:7:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_address",
                                             "typeString": "address"
@@ -1679,11 +1679,11 @@
                                 },
                                 {
                                     "constant": false,
-                                    "id": 1887,
+                                    "id": 2042,
                                     "name": "signature",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1893,
-                                    "src": "1175:15:12",
+                                    "scope": 2048,
+                                    "src": "1175:15:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -1691,10 +1691,10 @@
                                         "typeString": "bytes"
                                     },
                                     "typeName": {
-                                        "id": 1886,
+                                        "id": 2041,
                                         "name": "bytes",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "1175:5:12",
+                                        "src": "1175:5:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_bytes_storage_ptr",
                                             "typeString": "bytes"
@@ -1705,11 +1705,11 @@
                                 },
                                 {
                                     "constant": false,
-                                    "id": 1889,
+                                    "id": 2044,
                                     "name": "data",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1893,
-                                    "src": "1192:10:12",
+                                    "scope": 2048,
+                                    "src": "1192:10:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -1717,10 +1717,10 @@
                                         "typeString": "bytes"
                                     },
                                     "typeName": {
-                                        "id": 1888,
+                                        "id": 2043,
                                         "name": "bytes",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "1192:5:12",
+                                        "src": "1192:5:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_bytes_storage_ptr",
                                             "typeString": "bytes"
@@ -1731,11 +1731,11 @@
                                 },
                                 {
                                     "constant": false,
-                                    "id": 1891,
+                                    "id": 2046,
                                     "name": "uri",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1893,
-                                    "src": "1204:10:12",
+                                    "scope": 2048,
+                                    "src": "1204:10:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -1743,10 +1743,10 @@
                                         "typeString": "string"
                                     },
                                     "typeName": {
-                                        "id": 1890,
+                                        "id": 2045,
                                         "name": "string",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "1204:6:12",
+                                        "src": "1204:6:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_string_storage_ptr",
                                             "typeString": "string"
@@ -1756,10 +1756,10 @@
                                     "visibility": "internal"
                                 }
                             ],
-                            "src": "1123:92:12"
+                            "src": "1123:92:13"
                         },
-                        "scope": 1926,
-                        "src": "1064:152:12",
+                        "scope": 2081,
+                        "src": "1064:152:13",
                         "stateMutability": "view",
                         "superFunction": null,
                         "visibility": "public"
@@ -1767,7 +1767,7 @@
                     {
                         "body": null,
                         "documentation": null,
-                        "id": 1901,
+                        "id": 2056,
                         "implemented": false,
                         "isConstructor": false,
                         "isDeclaredConst": true,
@@ -1775,16 +1775,16 @@
                         "name": "getClaimIdsByType",
                         "nodeType": "FunctionDefinition",
                         "parameters": {
-                            "id": 1896,
+                            "id": 2051,
                             "nodeType": "ParameterList",
                             "parameters": [
                                 {
                                     "constant": false,
-                                    "id": 1895,
+                                    "id": 2050,
                                     "name": "_claimType",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1901,
-                                    "src": "1248:18:12",
+                                    "scope": 2056,
+                                    "src": "1248:18:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -1792,10 +1792,10 @@
                                         "typeString": "uint256"
                                     },
                                     "typeName": {
-                                        "id": 1894,
+                                        "id": 2049,
                                         "name": "uint256",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "1248:7:12",
+                                        "src": "1248:7:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_uint256",
                                             "typeString": "uint256"
@@ -1805,20 +1805,20 @@
                                     "visibility": "internal"
                                 }
                             ],
-                            "src": "1247:20:12"
+                            "src": "1247:20:13"
                         },
                         "payable": false,
                         "returnParameters": {
-                            "id": 1900,
+                            "id": 2055,
                             "nodeType": "ParameterList",
                             "parameters": [
                                 {
                                     "constant": false,
-                                    "id": 1899,
+                                    "id": 2054,
                                     "name": "claimIds",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1901,
-                                    "src": "1292:18:12",
+                                    "scope": 2056,
+                                    "src": "1292:18:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -1827,19 +1827,19 @@
                                     },
                                     "typeName": {
                                         "baseType": {
-                                            "id": 1897,
+                                            "id": 2052,
                                             "name": "bytes32",
                                             "nodeType": "ElementaryTypeName",
-                                            "src": "1292:7:12",
+                                            "src": "1292:7:13",
                                             "typeDescriptions": {
                                                 "typeIdentifier": "t_bytes32",
                                                 "typeString": "bytes32"
                                             }
                                         },
-                                        "id": 1898,
+                                        "id": 2053,
                                         "length": null,
                                         "nodeType": "ArrayTypeName",
-                                        "src": "1292:9:12",
+                                        "src": "1292:9:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_array$_t_bytes32_$dyn_storage_ptr",
                                             "typeString": "bytes32[]"
@@ -1849,10 +1849,10 @@
                                     "visibility": "internal"
                                 }
                             ],
-                            "src": "1291:20:12"
+                            "src": "1291:20:13"
                         },
-                        "scope": 1926,
-                        "src": "1221:91:12",
+                        "scope": 2081,
+                        "src": "1221:91:13",
                         "stateMutability": "view",
                         "superFunction": null,
                         "visibility": "public"
@@ -1860,7 +1860,7 @@
                     {
                         "body": null,
                         "documentation": null,
-                        "id": 1918,
+                        "id": 2073,
                         "implemented": false,
                         "isConstructor": false,
                         "isDeclaredConst": false,
@@ -1868,16 +1868,16 @@
                         "name": "addClaim",
                         "nodeType": "FunctionDefinition",
                         "parameters": {
-                            "id": 1914,
+                            "id": 2069,
                             "nodeType": "ParameterList",
                             "parameters": [
                                 {
                                     "constant": false,
-                                    "id": 1903,
+                                    "id": 2058,
                                     "name": "_claimType",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1918,
-                                    "src": "1335:18:12",
+                                    "scope": 2073,
+                                    "src": "1335:18:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -1885,10 +1885,10 @@
                                         "typeString": "uint256"
                                     },
                                     "typeName": {
-                                        "id": 1902,
+                                        "id": 2057,
                                         "name": "uint256",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "1335:7:12",
+                                        "src": "1335:7:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_uint256",
                                             "typeString": "uint256"
@@ -1899,11 +1899,11 @@
                                 },
                                 {
                                     "constant": false,
-                                    "id": 1905,
+                                    "id": 2060,
                                     "name": "_scheme",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1918,
-                                    "src": "1355:15:12",
+                                    "scope": 2073,
+                                    "src": "1355:15:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -1911,10 +1911,10 @@
                                         "typeString": "uint256"
                                     },
                                     "typeName": {
-                                        "id": 1904,
+                                        "id": 2059,
                                         "name": "uint256",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "1355:7:12",
+                                        "src": "1355:7:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_uint256",
                                             "typeString": "uint256"
@@ -1925,11 +1925,11 @@
                                 },
                                 {
                                     "constant": false,
-                                    "id": 1907,
+                                    "id": 2062,
                                     "name": "issuer",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1918,
-                                    "src": "1372:14:12",
+                                    "scope": 2073,
+                                    "src": "1372:14:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -1937,10 +1937,10 @@
                                         "typeString": "address"
                                     },
                                     "typeName": {
-                                        "id": 1906,
+                                        "id": 2061,
                                         "name": "address",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "1372:7:12",
+                                        "src": "1372:7:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_address",
                                             "typeString": "address"
@@ -1951,11 +1951,11 @@
                                 },
                                 {
                                     "constant": false,
-                                    "id": 1909,
+                                    "id": 2064,
                                     "name": "_signature",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1918,
-                                    "src": "1388:16:12",
+                                    "scope": 2073,
+                                    "src": "1388:16:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -1963,10 +1963,10 @@
                                         "typeString": "bytes"
                                     },
                                     "typeName": {
-                                        "id": 1908,
+                                        "id": 2063,
                                         "name": "bytes",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "1388:5:12",
+                                        "src": "1388:5:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_bytes_storage_ptr",
                                             "typeString": "bytes"
@@ -1977,11 +1977,11 @@
                                 },
                                 {
                                     "constant": false,
-                                    "id": 1911,
+                                    "id": 2066,
                                     "name": "_data",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1918,
-                                    "src": "1406:11:12",
+                                    "scope": 2073,
+                                    "src": "1406:11:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -1989,10 +1989,10 @@
                                         "typeString": "bytes"
                                     },
                                     "typeName": {
-                                        "id": 1910,
+                                        "id": 2065,
                                         "name": "bytes",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "1406:5:12",
+                                        "src": "1406:5:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_bytes_storage_ptr",
                                             "typeString": "bytes"
@@ -2003,11 +2003,11 @@
                                 },
                                 {
                                     "constant": false,
-                                    "id": 1913,
+                                    "id": 2068,
                                     "name": "_uri",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1918,
-                                    "src": "1419:11:12",
+                                    "scope": 2073,
+                                    "src": "1419:11:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -2015,10 +2015,10 @@
                                         "typeString": "string"
                                     },
                                     "typeName": {
-                                        "id": 1912,
+                                        "id": 2067,
                                         "name": "string",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "1419:6:12",
+                                        "src": "1419:6:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_string_storage_ptr",
                                             "typeString": "string"
@@ -2028,20 +2028,20 @@
                                     "visibility": "internal"
                                 }
                             ],
-                            "src": "1334:97:12"
+                            "src": "1334:97:13"
                         },
                         "payable": false,
                         "returnParameters": {
-                            "id": 1917,
+                            "id": 2072,
                             "nodeType": "ParameterList",
                             "parameters": [
                                 {
                                     "constant": false,
-                                    "id": 1916,
+                                    "id": 2071,
                                     "name": "claimRequestId",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1918,
-                                    "src": "1448:22:12",
+                                    "scope": 2073,
+                                    "src": "1448:22:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -2049,10 +2049,10 @@
                                         "typeString": "bytes32"
                                     },
                                     "typeName": {
-                                        "id": 1915,
+                                        "id": 2070,
                                         "name": "bytes32",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "1448:7:12",
+                                        "src": "1448:7:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_bytes32",
                                             "typeString": "bytes32"
@@ -2062,10 +2062,10 @@
                                     "visibility": "internal"
                                 }
                             ],
-                            "src": "1447:24:12"
+                            "src": "1447:24:13"
                         },
-                        "scope": 1926,
-                        "src": "1317:155:12",
+                        "scope": 2081,
+                        "src": "1317:155:13",
                         "stateMutability": "nonpayable",
                         "superFunction": null,
                         "visibility": "public"
@@ -2073,7 +2073,7 @@
                     {
                         "body": null,
                         "documentation": null,
-                        "id": 1925,
+                        "id": 2080,
                         "implemented": false,
                         "isConstructor": false,
                         "isDeclaredConst": false,
@@ -2081,16 +2081,16 @@
                         "name": "removeClaim",
                         "nodeType": "FunctionDefinition",
                         "parameters": {
-                            "id": 1921,
+                            "id": 2076,
                             "nodeType": "ParameterList",
                             "parameters": [
                                 {
                                     "constant": false,
-                                    "id": 1920,
+                                    "id": 2075,
                                     "name": "_claimId",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1925,
-                                    "src": "1498:16:12",
+                                    "scope": 2080,
+                                    "src": "1498:16:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -2098,10 +2098,10 @@
                                         "typeString": "bytes32"
                                     },
                                     "typeName": {
-                                        "id": 1919,
+                                        "id": 2074,
                                         "name": "bytes32",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "1498:7:12",
+                                        "src": "1498:7:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_bytes32",
                                             "typeString": "bytes32"
@@ -2111,20 +2111,20 @@
                                     "visibility": "internal"
                                 }
                             ],
-                            "src": "1497:18:12"
+                            "src": "1497:18:13"
                         },
                         "payable": false,
                         "returnParameters": {
-                            "id": 1924,
+                            "id": 2079,
                             "nodeType": "ParameterList",
                             "parameters": [
                                 {
                                     "constant": false,
-                                    "id": 1923,
+                                    "id": 2078,
                                     "name": "success",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 1925,
-                                    "src": "1532:12:12",
+                                    "scope": 2080,
+                                    "src": "1532:12:13",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -2132,10 +2132,10 @@
                                         "typeString": "bool"
                                     },
                                     "typeName": {
-                                        "id": 1922,
+                                        "id": 2077,
                                         "name": "bool",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "1532:4:12",
+                                        "src": "1532:4:13",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_bool",
                                             "typeString": "bool"
@@ -2145,19 +2145,20 @@
                                     "visibility": "internal"
                                 }
                             ],
-                            "src": "1531:14:12"
+                            "src": "1531:14:13"
                         },
-                        "scope": 1926,
-                        "src": "1477:69:12",
+                        "scope": 2081,
+                        "src": "1477:69:13",
                         "stateMutability": "nonpayable",
                         "superFunction": null,
                         "visibility": "public"
                     }
                 ],
-                "scope": 1927,
-                "src": "26:1522:12"
+                "scope": 2082,
+                "src": "26:1522:13"
             }
         ],
-        "src": "0:1549:12"
-    }
+        "src": "0:1549:13"
+    },
+    "deployedBytecode": "0x"
 }

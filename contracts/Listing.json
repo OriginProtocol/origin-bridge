@@ -304,7 +304,7 @@
                 "id": 2,
                 "nodeType": "ImportDirective",
                 "scope": 208,
-                "sourceUnit": 782,
+                "sourceUnit": 937,
                 "src": "125:24:0",
                 "symbolAliases": [],
                 "unitAlias": ""
@@ -315,7 +315,7 @@
                 "id": 3,
                 "nodeType": "ImportDirective",
                 "scope": 208,
-                "sourceUnit": 805,
+                "sourceUnit": 960,
                 "src": "150:31:0",
                 "symbolAliases": [],
                 "unitAlias": ""
@@ -354,7 +354,7 @@
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
-                                        "typeIdentifier": "t_contract$_Purchase_$781",
+                                        "typeIdentifier": "t_contract$_Purchase_$936",
                                         "typeString": "contract Purchase"
                                     },
                                     "typeName": {
@@ -362,10 +362,10 @@
                                         "id": 4,
                                         "name": "Purchase",
                                         "nodeType": "UserDefinedTypeName",
-                                        "referencedDeclaration": 781,
+                                        "referencedDeclaration": 936,
                                         "src": "253:8:0",
                                         "typeDescriptions": {
-                                            "typeIdentifier": "t_contract$_Purchase_$781",
+                                            "typeIdentifier": "t_contract$_Purchase_$936",
                                             "typeString": "contract Purchase"
                                         }
                                     },
@@ -583,7 +583,7 @@
                         "stateVariable": true,
                         "storageLocation": "default",
                         "typeDescriptions": {
-                            "typeIdentifier": "t_array$_t_contract$_Purchase_$781_$dyn_storage",
+                            "typeIdentifier": "t_array$_t_contract$_Purchase_$936_$dyn_storage",
                             "typeString": "contract Purchase[]"
                         },
                         "typeName": {
@@ -592,10 +592,10 @@
                                 "id": 24,
                                 "name": "Purchase",
                                 "nodeType": "UserDefinedTypeName",
-                                "referencedDeclaration": 781,
+                                "referencedDeclaration": 936,
                                 "src": "804:8:0",
                                 "typeDescriptions": {
-                                    "typeIdentifier": "t_contract$_Purchase_$781",
+                                    "typeIdentifier": "t_contract$_Purchase_$936",
                                     "typeString": "contract Purchase"
                                 }
                             },
@@ -604,7 +604,7 @@
                             "nodeType": "ArrayTypeName",
                             "src": "804:10:0",
                             "typeDescriptions": {
-                                "typeIdentifier": "t_array$_t_contract$_Purchase_$781_$dyn_storage_ptr",
+                                "typeIdentifier": "t_array$_t_contract$_Purchase_$936_$dyn_storage_ptr",
                                 "typeString": "contract Purchase[]"
                             }
                         },
@@ -694,7 +694,7 @@
                                                 "name": "msg",
                                                 "nodeType": "Identifier",
                                                 "overloadedDeclarations": [],
-                                                "referencedDeclaration": 2709,
+                                                "referencedDeclaration": 2864,
                                                 "src": "1015:3:0",
                                                 "typeDescriptions": {
                                                     "typeIdentifier": "t_magic_message",
@@ -892,7 +892,7 @@
                                             "name": "now",
                                             "nodeType": "Identifier",
                                             "overloadedDeclarations": [],
-                                            "referencedDeclaration": 2711,
+                                            "referencedDeclaration": 2866,
                                             "src": "1165:3:0",
                                             "typeDescriptions": {
                                                 "typeIdentifier": "t_uint256",
@@ -1155,7 +1155,7 @@
                                                         "name": "msg",
                                                         "nodeType": "Identifier",
                                                         "overloadedDeclarations": [],
-                                                        "referencedDeclaration": 2709,
+                                                        "referencedDeclaration": 2864,
                                                         "src": "1280:3:0",
                                                         "typeDescriptions": {
                                                             "typeIdentifier": "t_magic_message",
@@ -1209,10 +1209,10 @@
                                             "name": "require",
                                             "nodeType": "Identifier",
                                             "overloadedDeclarations": [
-                                                2712,
-                                                2713
+                                                2867,
+                                                2868
                                             ],
-                                            "referencedDeclaration": 2712,
+                                            "referencedDeclaration": 2867,
                                             "src": "1272:7:0",
                                             "typeDescriptions": {
                                                 "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -1286,7 +1286,7 @@
                                                         "name": "msg",
                                                         "nodeType": "Identifier",
                                                         "overloadedDeclarations": [],
-                                                        "referencedDeclaration": 2709,
+                                                        "referencedDeclaration": 2864,
                                                         "src": "1353:3:0",
                                                         "typeDescriptions": {
                                                             "typeIdentifier": "t_magic_message",
@@ -1340,10 +1340,10 @@
                                             "name": "require",
                                             "nodeType": "Identifier",
                                             "overloadedDeclarations": [
-                                                2712,
-                                                2713
+                                                2867,
+                                                2868
                                             ],
-                                            "referencedDeclaration": 2712,
+                                            "referencedDeclaration": 2867,
                                             "src": "1345:7:0",
                                             "typeDescriptions": {
                                                 "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -1748,10 +1748,10 @@
                                             "name": "require",
                                             "nodeType": "Identifier",
                                             "overloadedDeclarations": [
-                                                2712,
-                                                2713
+                                                2867,
+                                                2868
                                             ],
-                                            "referencedDeclaration": 2712,
+                                            "referencedDeclaration": 2867,
                                             "src": "1908:7:0",
                                             "typeDescriptions": {
                                                 "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -1797,7 +1797,7 @@
                                                     "name": "now",
                                                     "nodeType": "Identifier",
                                                     "overloadedDeclarations": [],
-                                                    "referencedDeclaration": 2711,
+                                                    "referencedDeclaration": 2866,
                                                     "src": "2011:3:0",
                                                     "typeDescriptions": {
                                                         "typeIdentifier": "t_uint256",
@@ -1837,10 +1837,10 @@
                                             "name": "require",
                                             "nodeType": "Identifier",
                                             "overloadedDeclarations": [
-                                                2712,
-                                                2713
+                                                2867,
+                                                2868
                                             ],
-                                            "referencedDeclaration": 2712,
+                                            "referencedDeclaration": 2867,
                                             "src": "2003:7:0",
                                             "typeDescriptions": {
                                                 "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -1880,7 +1880,7 @@
                                             "stateVariable": false,
                                             "storageLocation": "default",
                                             "typeDescriptions": {
-                                                "typeIdentifier": "t_contract$_Purchase_$781",
+                                                "typeIdentifier": "t_contract$_Purchase_$936",
                                                 "typeString": "contract Purchase"
                                             },
                                             "typeName": {
@@ -1888,10 +1888,10 @@
                                                 "id": 134,
                                                 "name": "Purchase",
                                                 "nodeType": "UserDefinedTypeName",
-                                                "referencedDeclaration": 781,
+                                                "referencedDeclaration": 936,
                                                 "src": "2067:8:0",
                                                 "typeDescriptions": {
-                                                    "typeIdentifier": "t_contract$_Purchase_$781",
+                                                    "typeIdentifier": "t_contract$_Purchase_$936",
                                                     "typeString": "contract Purchase"
                                                 }
                                             },
@@ -1909,7 +1909,7 @@
                                                 "name": "this",
                                                 "nodeType": "Identifier",
                                                 "overloadedDeclarations": [],
-                                                "referencedDeclaration": 2726,
+                                                "referencedDeclaration": 2881,
                                                 "src": "2123:4:0",
                                                 "typeDescriptions": {
                                                     "typeIdentifier": "t_contract$_Listing_$207",
@@ -1924,7 +1924,7 @@
                                                     "name": "msg",
                                                     "nodeType": "Identifier",
                                                     "overloadedDeclarations": [],
-                                                    "referencedDeclaration": 2709,
+                                                    "referencedDeclaration": 2864,
                                                     "src": "2129:3:0",
                                                     "typeDescriptions": {
                                                         "typeIdentifier": "t_magic_message",
@@ -1963,10 +1963,10 @@
                                                 "name": "PurchaseLibrary",
                                                 "nodeType": "Identifier",
                                                 "overloadedDeclarations": [],
-                                                "referencedDeclaration": 804,
+                                                "referencedDeclaration": 959,
                                                 "src": "2095:15:0",
                                                 "typeDescriptions": {
-                                                    "typeIdentifier": "t_type$_t_contract$_PurchaseLibrary_$804_$",
+                                                    "typeIdentifier": "t_type$_t_contract$_PurchaseLibrary_$959_$",
                                                     "typeString": "type(library PurchaseLibrary)"
                                                 }
                                             },
@@ -1977,10 +1977,10 @@
                                             "lValueRequested": false,
                                             "memberName": "newPurchase",
                                             "nodeType": "MemberAccess",
-                                            "referencedDeclaration": 803,
+                                            "referencedDeclaration": 958,
                                             "src": "2095:27:0",
                                             "typeDescriptions": {
-                                                "typeIdentifier": "t_function_delegatecall_nonpayable$_t_contract$_Listing_$207_$_t_address_$returns$_t_contract$_Purchase_$781_$",
+                                                "typeIdentifier": "t_function_delegatecall_nonpayable$_t_contract$_Listing_$207_$_t_address_$returns$_t_contract$_Purchase_$936_$",
                                                 "typeString": "function (contract Listing,address) returns (contract Purchase)"
                                             }
                                         },
@@ -1994,7 +1994,7 @@
                                         "nodeType": "FunctionCall",
                                         "src": "2095:45:0",
                                         "typeDescriptions": {
-                                            "typeIdentifier": "t_contract$_Purchase_$781",
+                                            "typeIdentifier": "t_contract$_Purchase_$936",
                                             "typeString": "contract Purchase"
                                         }
                                     },
@@ -2060,7 +2060,7 @@
                                                 "referencedDeclaration": 135,
                                                 "src": "2225:16:0",
                                                 "typeDescriptions": {
-                                                    "typeIdentifier": "t_contract$_Purchase_$781",
+                                                    "typeIdentifier": "t_contract$_Purchase_$936",
                                                     "typeString": "contract Purchase"
                                                 }
                                             }
@@ -2068,7 +2068,7 @@
                                         "expression": {
                                             "argumentTypes": [
                                                 {
-                                                    "typeIdentifier": "t_contract$_Purchase_$781",
+                                                    "typeIdentifier": "t_contract$_Purchase_$936",
                                                     "typeString": "contract Purchase"
                                                 }
                                             ],
@@ -2081,7 +2081,7 @@
                                                 "referencedDeclaration": 26,
                                                 "src": "2210:9:0",
                                                 "typeDescriptions": {
-                                                    "typeIdentifier": "t_array$_t_contract$_Purchase_$781_$dyn_storage",
+                                                    "typeIdentifier": "t_array$_t_contract$_Purchase_$936_$dyn_storage",
                                                     "typeString": "contract Purchase[] storage ref"
                                                 }
                                             },
@@ -2095,7 +2095,7 @@
                                             "referencedDeclaration": null,
                                             "src": "2210:14:0",
                                             "typeDescriptions": {
-                                                "typeIdentifier": "t_function_arraypush_nonpayable$_t_contract$_Purchase_$781_$returns$_t_uint256_$",
+                                                "typeIdentifier": "t_function_arraypush_nonpayable$_t_contract$_Purchase_$936_$returns$_t_uint256_$",
                                                 "typeString": "function (contract Purchase) returns (uint256)"
                                             }
                                         },
@@ -2132,7 +2132,7 @@
                                                         "name": "msg",
                                                         "nodeType": "Identifier",
                                                         "overloadedDeclarations": [],
-                                                        "referencedDeclaration": 2709,
+                                                        "referencedDeclaration": 2864,
                                                         "src": "2338:3:0",
                                                         "typeDescriptions": {
                                                             "typeIdentifier": "t_magic_message",
@@ -2172,7 +2172,7 @@
                                                         "referencedDeclaration": 135,
                                                         "src": "2311:16:0",
                                                         "typeDescriptions": {
-                                                            "typeIdentifier": "t_contract$_Purchase_$781",
+                                                            "typeIdentifier": "t_contract$_Purchase_$936",
                                                             "typeString": "contract Purchase"
                                                         }
                                                     },
@@ -2183,7 +2183,7 @@
                                                     "lValueRequested": false,
                                                     "memberName": "pay",
                                                     "nodeType": "MemberAccess",
-                                                    "referencedDeclaration": 585,
+                                                    "referencedDeclaration": 740,
                                                     "src": "2311:20:0",
                                                     "typeDescriptions": {
                                                         "typeIdentifier": "t_function_external_payable$__$returns$__$",
@@ -2249,7 +2249,7 @@
                                                 "referencedDeclaration": 135,
                                                 "src": "2379:16:0",
                                                 "typeDescriptions": {
-                                                    "typeIdentifier": "t_contract$_Purchase_$781",
+                                                    "typeIdentifier": "t_contract$_Purchase_$936",
                                                     "typeString": "contract Purchase"
                                                 }
                                             }
@@ -2257,7 +2257,7 @@
                                         "expression": {
                                             "argumentTypes": [
                                                 {
-                                                    "typeIdentifier": "t_contract$_Purchase_$781",
+                                                    "typeIdentifier": "t_contract$_Purchase_$936",
                                                     "typeString": "contract Purchase"
                                                 }
                                             ],
@@ -2268,7 +2268,7 @@
                                             "referencedDeclaration": 7,
                                             "src": "2362:16:0",
                                             "typeDescriptions": {
-                                                "typeIdentifier": "t_function_event_nonpayable$_t_contract$_Purchase_$781_$returns$__$",
+                                                "typeIdentifier": "t_function_event_nonpayable$_t_contract$_Purchase_$936_$returns$__$",
                                                 "typeString": "function (contract Purchase)"
                                             }
                                         },
@@ -2560,7 +2560,7 @@
                                             "referencedDeclaration": 26,
                                             "src": "2777:9:0",
                                             "typeDescriptions": {
-                                                "typeIdentifier": "t_array$_t_contract$_Purchase_$781_$dyn_storage",
+                                                "typeIdentifier": "t_array$_t_contract$_Purchase_$936_$dyn_storage",
                                                 "typeString": "contract Purchase[] storage ref"
                                             }
                                         },
@@ -2660,7 +2660,7 @@
                                                     "referencedDeclaration": 26,
                                                     "src": "3037:9:0",
                                                     "typeDescriptions": {
-                                                        "typeIdentifier": "t_array$_t_contract$_Purchase_$781_$dyn_storage",
+                                                        "typeIdentifier": "t_array$_t_contract$_Purchase_$936_$dyn_storage",
                                                         "typeString": "contract Purchase[] storage ref"
                                                     }
                                                 },
@@ -2685,7 +2685,7 @@
                                                 "nodeType": "IndexAccess",
                                                 "src": "3037:17:0",
                                                 "typeDescriptions": {
-                                                    "typeIdentifier": "t_contract$_Purchase_$781",
+                                                    "typeIdentifier": "t_contract$_Purchase_$936",
                                                     "typeString": "contract Purchase"
                                                 }
                                             }
@@ -2699,7 +2699,7 @@
                                         "nodeType": "TupleExpression",
                                         "src": "3029:31:0",
                                         "typeDescriptions": {
-                                            "typeIdentifier": "t_contract$_Purchase_$781",
+                                            "typeIdentifier": "t_contract$_Purchase_$936",
                                             "typeString": "contract Purchase"
                                         }
                                     },
@@ -2766,7 +2766,7 @@
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
-                                        "typeIdentifier": "t_contract$_Purchase_$781",
+                                        "typeIdentifier": "t_contract$_Purchase_$936",
                                         "typeString": "contract Purchase"
                                     },
                                     "typeName": {
@@ -2774,10 +2774,10 @@
                                         "id": 197,
                                         "name": "Purchase",
                                         "nodeType": "UserDefinedTypeName",
-                                        "referencedDeclaration": 781,
+                                        "referencedDeclaration": 936,
                                         "src": "3004:8:0",
                                         "typeDescriptions": {
-                                            "typeIdentifier": "t_contract$_Purchase_$781",
+                                            "typeIdentifier": "t_contract$_Purchase_$936",
                                             "typeString": "contract Purchase"
                                         }
                                     },
@@ -2799,5 +2799,6 @@
             }
         ],
         "src": "0:3069:0"
-    }
+    },
+    "deployedBytecode": "0x6080604052600436106100c45763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166328e671b981146100c9578063325a19f1146100f05780633742a9f71461010557806343d726d6146101395780634665096d146101505780634884f459146101655780635ebf3e9b1461017057806373d4a13a146101855780638392fe31146101d75780638da5cb5b146101ef578063a035b1fe14610204578063c623674f14610219578063c6bbd6af1461022e575b600080fd5b3480156100d557600080fd5b506100de610243565b60408051918252519081900360200190f35b3480156100fc57600080fd5b506100de610249565b34801561011157600080fd5b5061011d60043561024f565b60408051600160a060020a039092168252519081900360200190f35b34801561014557600080fd5b5061014e61027b565b005b34801561015c57600080fd5b506100de6102c6565b61014e6004356102cc565b34801561017c57600080fd5b5061011d6104e7565b34801561019157600080fd5b5061019a6104f6565b60408051600160a060020a0390971687526020870195909552858501939093526060850191909152608084015260a0830152519081900360c00190f35b3480156101e357600080fd5b5061011d60043561051c565b3480156101fb57600080fd5b5061011d610544565b34801561021057600080fd5b506100de610553565b34801561022557600080fd5b506100de610559565b34801561023a57600080fd5b506100de61055f565b60075490565b60055481565b600060078281548110151561026057fe5b600091825260209091200154600160a060020a031692915050565b60005433600160a060020a0390811691161461029657600080fd5b600060048190556040517ffa378a7d48087b5b4be3b8236f6f8829009c67d0dc3a6a431e43385d52ea2d1d9190a1565b60065481565b6000805433600160a060020a03908116911614156102e957600080fd5b6004548211156102f857600080fd5b600654421061030657600080fd5b604080517f1c6b9b03000000000000000000000000000000000000000000000000000000008152600160a060020a03308116600483015233166024820152905173__PurchaseLibrary_______________________91631c6b9b03916044808301926020929190829003018186803b15801561038157600080fd5b505af4158015610395573d6000803e3d6000fd5b505050506040513d60208110156103ab57600080fd5b50516004805484900381556007805460018101825560009182527fa66cc928b5edb82af9bd49922954155ab7b0942694bea4ce44661d9a8736c68801805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a038516908117909155604080517f1b9265b800000000000000000000000000000000000000000000000000000000815290519495509093631b9265b8933493838201939092919082900301818588803b15801561046357600080fd5b505af1158015610477573d6000803e3d6000fd5b505060408051600160a060020a038616815290517f2df0d5ee1e33bfff4ba740237ef59eef9093cf4c8ebb55ad1a6e63f6801089be94509081900360200192509050a16040517ffa378a7d48087b5b4be3b8236f6f8829009c67d0dc3a6a431e43385d52ea2d1d90600090a15050565b600154600160a060020a031681565b600054600254600354600454600554600654600160a060020a0390951694909192939495565b600780548290811061052a57fe5b600091825260209091200154600160a060020a0316905081565b600054600160a060020a031681565b60035481565b60025481565b600454815600a165627a7a72305820b7a58da212d46150b6ab4870bae57f1551940a5a7171c96b9467d659d4b224c80029"
 }
