@@ -14,6 +14,7 @@ from web3 import Web3
 import logging
 import uuid
 import random, string
+from werkzeug.useragents import UserAgent
 
 
 CODE_EXPIRATION_TIME_MINUTES = 60
@@ -26,7 +27,7 @@ def _generate_code():
             return code
     raise Exception("We hit max retries without finding a none repreated code!")
 
-def generate_code(client_token, session_token, return_url, pending_call=None, force_relink=False):
+def generate_code(client_token, session_token, return_url, pending_call=None, user_agent = None, force_relink=False):
     if not client_token:
         #create a new uuid
         client_token = str(uuid.uuid1())
@@ -40,6 +41,8 @@ def generate_code(client_token, session_token, return_url, pending_call=None, fo
         linked_obj.linked = False
         linked_obj.wallet_token = None
     if not linked_obj.linked:
+        if user_agent:
+            linked_obj.app_info = {"user-agent":str(user-agent)}
         linked_obj.code = _generate_code()
         linked_obj.code_expires = utcnow() + datetime.timedelta(minutes=CODE_EXPIRATION_TIME_MINUTES)
         linked_obj.current_return_url = return_url
@@ -167,6 +170,10 @@ def link_wallet(wallet_token, code, current_rpc, current_accounts):
 
     #grab the last pending call
     last_pending_call = unlinked.pending_call
+    last_user_agent = None
+    if unlinked.app_info and "user-agent" in unlinked.app_info:
+        agent = UserAgent(unlinked.app_info)
+        last_user_agent = {"platform":agent.platform, "browser":agent.browser, "language":agent.language, "version":agent.version}
 
     unlinked.wallet_token = wallet_token
     unlinked.code = None
@@ -183,7 +190,7 @@ def link_wallet(wallet_token, code, current_rpc, current_accounts):
             send_init_messages(linked_session, unlinked)
 
     db.session.commit()
-    return unlinked.current_return_url, True, last_pending_call
+    return unlinked.current_return_url, True, last_pending_call, last_user_agent
 
 def call_wallet(client_token, session_token, accounts, call_id, call, return_url = None):
     if not client_token:

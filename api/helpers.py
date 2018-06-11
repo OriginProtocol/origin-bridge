@@ -47,6 +47,9 @@ def cookies_handler(call, cookies_def = {},  ret_keys = None):
                 else:
                     (cookie_name, _) = cookie_info
                 kargs[arg_name] = request.cookies.get(cookie_name)
+        # grab the user agent
+        if "user-agent" in call_args:
+            kargs["user-agent"] = request.user_agent
         ret = call(*args, **kargs)
         if isinstance(ret_keys, (list, tuple)):
             ret = dict(zip(ret_keys, ret))

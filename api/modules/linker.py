@@ -107,12 +107,13 @@ class LinkWalletResponse(StandardResponse):
     return_url = fields.Str()
     linked = fields.Boolean()
     pending_call = fields.Field()
+    app_info = fields.Field()
 
 class LinkWallet(Resource):
     def post(self):
         return handle_request(
             data=request.json,
-            handler=cookies_handler(linker_service.link_wallet, cookies_def, ("return_url","linked", "pending_call")),
+            handler=cookies_handler(linker_service.link_wallet, cookies_def, ("return_url","linked", "pending_call", "app_info")),
             request_schema=LinkWalletRequest,
             response_schema=LinkWalletResponse)
 
