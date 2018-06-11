@@ -42,7 +42,7 @@ def generate_code(client_token, session_token, return_url, pending_call=None, us
         linked_obj.wallet_token = None
     if not linked_obj.linked:
         if user_agent:
-            linked_obj.app_info = {"user-agent":str(user-agent)}
+            linked_obj.app_info = {"user-agent":str(user_agent)}
         linked_obj.code = _generate_code()
         linked_obj.code_expires = utcnow() + datetime.timedelta(minutes=CODE_EXPIRATION_TIME_MINUTES)
         linked_obj.current_return_url = return_url
@@ -172,7 +172,7 @@ def link_wallet(wallet_token, code, current_rpc, current_accounts):
     last_pending_call = unlinked.pending_call
     last_user_agent = None
     if unlinked.app_info and "user-agent" in unlinked.app_info:
-        agent = UserAgent(unlinked.app_info)
+        agent = UserAgent(unlinked.app_info["user-agent"])
         last_user_agent = {"platform":agent.platform, "browser":agent.browser, "language":agent.language, "version":agent.version}
 
     unlinked.wallet_token = wallet_token
