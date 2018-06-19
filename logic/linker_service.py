@@ -87,7 +87,6 @@ def get_linked_messages(db_linked_session, last_message_id, purge = False):
             message['result'] = db_message.data['result']
             message['call_id'] = db_message.data['call_id']
         messages.append(message)
-    print("we got messages:", messages)
     return messages
 
 def send_init_messages(db_linked_session, linked_obj):
