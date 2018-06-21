@@ -15,6 +15,7 @@ import logging
 import uuid
 import random, string
 from werkzeug.useragents import UserAgent
+import hashlib
 
 
 CODE_EXPIRATION_TIME_MINUTES = 60
@@ -26,6 +27,10 @@ def _generate_code():
         if not LinkedTokens.query.filter_by(code = code).filter(LinkedTokens.code_expires > utcnow()).count():
             return code
     raise Exception("We hit max retries without finding a none repreated code!")
+
+def _hash_id(exposed_id, key):
+    # let's not expose all of the key if we're just using it for hash
+    return hashlib.sha3_224(("%d%s" % (exposed_id, key)).encode("utf-8")).hexdigest()[:16]
 
 def generate_code(client_token, session_token, return_url, pending_call=None, user_agent = None, force_relink=False):
     if not client_token:
@@ -161,18 +166,20 @@ def wallet_messages(wallet_token, accounts, last_message_id=None):
         messages.append(message)
     return messages
 
+def _to_usable_info(app_info):
+    if app_info and "user-agent" in app_info:
+        agent = UserAgent(app_info["user-agent"])
+        return {"platform":agent.platform, "browser":agent.browser, "language":agent.language, "version":agent.version}
+
 def link_wallet(wallet_token, code, current_rpc, current_accounts):
     # TODO make sure there's only one of these
     unlinked = LinkedTokens.query.filter_by(code = code).filter(LinkedTokens.code_expires > utcnow()).first()
     if not unlinked:
-        return "", False, None
+        return "", False, None, None, ""
 
     #grab the last pending call
     last_pending_call = unlinked.pending_call
-    last_user_agent = None
-    if unlinked.app_info and "user-agent" in unlinked.app_info:
-        agent = UserAgent(unlinked.app_info["user-agent"])
-        last_user_agent = {"platform":agent.platform, "browser":agent.browser, "language":agent.language, "version":agent.version}
+    last_user_agent = _to_usable_info(unlinked.app_info)
 
     unlinked.wallet_token = wallet_token
     unlinked.code = None
@@ -189,7 +196,14 @@ def link_wallet(wallet_token, code, current_rpc, current_accounts):
             send_init_messages(linked_session, unlinked)
 
     db.session.commit()
-    return unlinked.current_return_url, True, last_pending_call, last_user_agent
+    return unlinked.current_return_url, True, last_pending_call, last_user_agent, _hash_id(unlinked.id, unlinked.client_token)
+
+def link_info(code):
+    # TODO make sure there's only one of these
+    unlinked = LinkedTokens.query.filter_by(code = code).filter(LinkedTokens.code_expires > utcnow()).first()
+    if not unlinked or unlinked.linked:
+        return "", None
+    return unlinked.current_return_url, _to_usable_info(unlinked.app_info), _hash_id(unlinked.id, unlinked.client_token)
 
 def call_wallet(client_token, session_token, accounts, call_id, call, return_url = None):
     if not client_token:
@@ -254,3 +268,11 @@ def unlink(client_token):
     db.session.commit()
     return True
 
+def unlink_wallet(wallet_token, link_id):
+    for linked in LinkedTokens.query.filter_by(wallet_token = wallet_token):
+        if linked.linked and _hash_id(linked.id, linked.client_token) == link_id:
+            linked.linked = False
+            db.session.add(unlinked)
+            db.session.commit()
+            return True
+    return False

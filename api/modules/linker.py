@@ -97,6 +97,23 @@ class WalletCalled(Resource):
             request_schema=WalletCalledRequest,
             response_schema=WalletCalledResponse)
 
+class LinkInfoRequest(StandardRequest):
+    code = fields.Str(required=True)
+
+class LinkInfoResponse(StandardResponse):
+    return_url = fields.Str()
+    app_info = fields.Field()
+    link_id = fields.Str()
+
+# TODO: this needs to be a GET
+class LinkInfo(Resource):
+    def post(self):
+        return handle_request(
+            data=request.json,
+            handler=cookies_handler(linker_service.link_info, cookies_def, ("return_url", "app_info", "link_id")),
+            request_schema=LinkInfoRequest,
+            response_schema=LinkInfoResponse)
+
 class LinkWalletRequest(StandardRequest):
     wallet_token = fields.Str(required=True)
     code = fields.Str(required=True)
@@ -108,12 +125,13 @@ class LinkWalletResponse(StandardResponse):
     linked = fields.Boolean()
     pending_call = fields.Field()
     app_info = fields.Field()
+    link_id = fields.Str()
 
 class LinkWallet(Resource):
     def post(self):
         return handle_request(
             data=request.json,
-            handler=cookies_handler(linker_service.link_wallet, cookies_def, ("return_url","linked", "pending_call", "app_info")),
+            handler=cookies_handler(linker_service.link_wallet, cookies_def, ("return_url","linked", "pending_call", "app_info", "link_id")),
             request_schema=LinkWalletRequest,
             response_schema=LinkWalletResponse)
 
@@ -131,14 +149,32 @@ class Unlink(Resource):
             request_schema=UnlinkRequest,
             response_schema=UnlinkResponse)
 
+class UnlinkWalletRequest(StandardRequest):
+    wallet_token = fields.Str(required=True)
+    link_id = fields.Str(required=True)
+
+class UnlinkWalletResponse(StandardResponse):
+    success = fields.Boolean()
+
+class UnlinkWallet(Resource):
+    def post(self):
+        return handle_request(
+            data=request.json,
+            handler=cookies_handler(linker_service.unlink_wallet, cookies_def, "success"),
+            request_schema=UnlinkWalletRequest,
+            response_schema=UnlinkWalletResponse)
+
+
 
 resources = {
     # 'hello-world-path': HelloWorldResource
     'generate-code': GenerateCode,
     'link-messages':LinkMessages,
+    'link-info':LinkInfo,
     'wallet-messages':WalletMessages,
     'call-wallet':CallWallet,
     'wallet-called':WalletCalled,
     'link-wallet':LinkWallet,
-    "unlink":Unlink
+    "unlink":Unlink,
+    'unlink-wallet':UnlinkWallet
 }
