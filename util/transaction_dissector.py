@@ -49,7 +49,9 @@ def dissect_transaction(current_rpc, txn_obj):
         if contract:
             call, params = extract_contract_call(data, contract)
             dot_call = contract + "." + call
-            meta["call"] = dot_call
+            meta["contract"] = contract
+            meta["call"] = call
+            meta["params"] = params
             print("call:", file=pout)
             pprint(dot_call, stream=pout)
             print("params:", file=pout)

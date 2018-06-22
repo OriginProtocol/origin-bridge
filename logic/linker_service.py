@@ -272,7 +272,7 @@ def unlink_wallet(wallet_token, link_id):
     for linked in LinkedTokens.query.filter_by(wallet_token = wallet_token):
         if linked.linked and _hash_id(linked.id, linked.client_token) == link_id:
             linked.linked = False
-            db.session.add(unlinked)
+            db.session.add(linked)
             db.session.commit()
             return True
     return False
