@@ -25,6 +25,11 @@ class LinkedTokens(db.Model):
         db.DateTime(
             timezone=True),
         server_default=func.now())
+    linked_at = db.Column(
+        db.DateTime(
+            timezone=True),
+        server_default=func.now())
+
 
 # very hacky message queue, probably want a real one to be scalable
 class LinkedSession(db.Model):

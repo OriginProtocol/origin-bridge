@@ -5,7 +5,7 @@ from sqlalchemy import cast
 from .notifier_service import Notification, EthNotificationEndpoint, send_single_notification 
 from util.contract import ContractHelper
 from util.ipfs import IPFSHelper
-from util.time_ import utcnow
+from util.time_ import utcnow, to_js_timestamp
 from util.transaction_dissector import dissect_transaction
 import datetime
 from config import settings
@@ -175,7 +175,7 @@ def link_wallet(wallet_token, code, current_rpc, current_accounts):
     # TODO make sure there's only one of these
     unlinked = LinkedTokens.query.filter_by(code = code).filter(LinkedTokens.code_expires > utcnow()).first()
     if not unlinked:
-        return "", False, None, None, ""
+        return "", False, None, None, "", 0
 
     #grab the last pending call
     last_pending_call = unlinked.pending_call
@@ -186,6 +186,7 @@ def link_wallet(wallet_token, code, current_rpc, current_accounts):
     unlinked.linked = True
     unlinked.current_rpc = current_rpc
     unlinked.current_accounts = current_accounts
+    unlinked.linked_at = utcnow()
     unlinked.pending_call = None
 
     db.session.add(unlinked)
@@ -196,14 +197,17 @@ def link_wallet(wallet_token, code, current_rpc, current_accounts):
             send_init_messages(linked_session, unlinked)
 
     db.session.commit()
-    return unlinked.current_return_url, True, last_pending_call, last_user_agent, _hash_id(unlinked.id, unlinked.client_token)
+    return unlinked.current_return_url, True, last_pending_call, last_user_agent, _hash_id(unlinked.id, unlinked.client_token), to_js_timestamp(unlinked.linked_at)
 
 def link_info(code):
     # TODO make sure there's only one of these
     unlinked = LinkedTokens.query.filter_by(code = code).filter(LinkedTokens.code_expires > utcnow()).first()
     if not unlinked or unlinked.linked:
         return "", None
-    return unlinked.current_return_url, _to_usable_info(unlinked.app_info), _hash_id(unlinked.id, unlinked.client_token)
+    return unlinked.current_return_url, _to_usable_info(unlinked.app_info), _hash_id(unlinked.id, unlinked.client_token), to_js_timestamp(LinkedTokens.code_expires)
+
+def _link_dict(link):
+    return {"linked":link.linked, "app_info":_to_usable_info(link.app_info), "link_id":_hash_id(link.id, link.client_token), "linked_at":to_js_timestamp(link.linked_at)}
 
 def call_wallet(client_token, session_token, accounts, call_id, call, return_url = None):
     if not client_token:
@@ -272,7 +276,11 @@ def unlink_wallet(wallet_token, link_id):
     for linked in LinkedTokens.query.filter_by(wallet_token = wallet_token):
         if linked.linked and _hash_id(linked.id, linked.client_token) == link_id:
             linked.linked = False
+            linked.wallet_token = ""
             db.session.add(linked)
             db.session.commit()
             return True
     return False
+
+def get_links(wallet_token):
+    return [_link_dict(l) for l in LinkedTokens.query.filter_by(wallet_token = wallet_token, linked = True) if l.linked]

@@ -110,7 +110,7 @@ class LinkInfo(Resource):
     def post(self):
         return handle_request(
             data=request.json,
-            handler=cookies_handler(linker_service.link_info, cookies_def, ("return_url", "app_info", "link_id")),
+            handler=cookies_handler(linker_service.link_info, cookies_def, ("return_url", "app_info", "link_id", "expires_at")),
             request_schema=LinkInfoRequest,
             response_schema=LinkInfoResponse)
 
@@ -126,12 +126,13 @@ class LinkWalletResponse(StandardResponse):
     pending_call = fields.Field()
     app_info = fields.Field()
     link_id = fields.Str()
+    linked_at = fields.Integer()
 
 class LinkWallet(Resource):
     def post(self):
         return handle_request(
             data=request.json,
-            handler=cookies_handler(linker_service.link_wallet, cookies_def, ("return_url","linked", "pending_call", "app_info", "link_id")),
+            handler=cookies_handler(linker_service.link_wallet, cookies_def, ("return_url","linked", "pending_call", "app_info", "link_id", "linked_at")),
             request_schema=LinkWalletRequest,
             response_schema=LinkWalletResponse)
 
@@ -164,7 +165,10 @@ class UnlinkWallet(Resource):
             request_schema=UnlinkWalletRequest,
             response_schema=UnlinkWalletResponse)
 
-
+class WalletLinks(Resource):
+    def get(self, wallet_token):
+        if wallet_token:
+            return linker_service.get_links(wallet_token), 200
 
 resources = {
     # 'hello-world-path': HelloWorldResource
@@ -175,6 +179,7 @@ resources = {
     'call-wallet':CallWallet,
     'wallet-called':WalletCalled,
     'link-wallet':LinkWallet,
+    'wallet-links/<wallet_token>':WalletLinks,
     "unlink":Unlink,
     'unlink-wallet':UnlinkWallet
 }
