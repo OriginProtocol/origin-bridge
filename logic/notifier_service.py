@@ -131,6 +131,9 @@ def send_single_notification(notification_endpoint, notification_type, data):
         # send FCM notification here
         send_fcm_notification(notify_message, notification_endpoint)
 
+def send_event_notification(*args, **kargs):
+    if settings.ENABLE_EVENT_NOTIFICATIONS:
+        send_notification(*args, **kargs)
 
 def send_notification(notify_address, notification_type, **data):
     for notification_endpoint in EthNotificationEndpoint.query.filter_by(
@@ -189,15 +192,15 @@ class Notifier():
                 contract_address=purchase_obj.listing_address).first()
             if listing_obj:
                 listing_params = listing_info(listing_obj)
-                seller_notification and send_notification(
+                seller_notification and send_event_notification(
                     listing_obj.owner_address, seller_notification, **listing_params)
-                buyer_notification and send_notification(
+                buyer_notification and send_event_notification(
                     purchase_obj.buyer_address, buyer_notification, **listing_params)
 
     @classmethod
     def notify_listing(cls, listing_obj):
         listing_params = listing_info(listing_obj)
-        send_notification(
+        send_event_notification(
             listing_obj.owner_address,
             Notification.LIST,
             **listing_params)
@@ -205,7 +208,7 @@ class Notifier():
     @classmethod
     def notify_listing_update(cls, listing_obj):
         listing_params = listing_info(listing_obj)
-        send_notification(
+        send_event_notification(
             listing_obj.owner_address,
             Notification.UPDATED,
             **listing_params)

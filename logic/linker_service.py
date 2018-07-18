@@ -204,7 +204,7 @@ def link_info(code):
     unlinked = LinkedTokens.query.filter_by(code = code).filter(LinkedTokens.code_expires > utcnow()).first()
     if not unlinked or unlinked.linked:
         return "", None
-    return unlinked.current_return_url, _to_usable_info(unlinked.app_info), _hash_id(unlinked.id, unlinked.client_token), to_js_timestamp(LinkedTokens.code_expires)
+    return unlinked.current_return_url, _to_usable_info(unlinked.app_info), _hash_id(unlinked.id, unlinked.client_token), to_js_timestamp(unlinked.code_expires)
 
 def _link_dict(link):
     return {"linked":link.linked, "app_info":_to_usable_info(link.app_info), "link_id":_hash_id(link.id, link.client_token), "linked_at":to_js_timestamp(link.linked_at)}
