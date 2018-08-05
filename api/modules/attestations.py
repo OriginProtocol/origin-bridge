@@ -6,7 +6,10 @@ from api.helpers import StandardRequest, StandardResponse, handle_request
 
 
 class PhoneVerificationCodeRequest(StandardRequest):
+    country_calling_code = fields.Str(required=True)
     phone = fields.Str(required=True)
+    method = fields.Str(missing='sms')
+    locale = fields.Str(missing=None)
 
 
 class PhoneVerificationCodeResponse(StandardResponse):
@@ -15,6 +18,7 @@ class PhoneVerificationCodeResponse(StandardResponse):
 
 class VerifyPhoneRequest(StandardRequest):
     eth_address = fields.Str(required=True, data_key='identity')
+    country_calling_code = fields.Str(required=True)
     phone = fields.Str(required=True)
     code = fields.Str(required=True)
 
@@ -83,11 +87,26 @@ class VerifyTwitterResponse(StandardResponse):
     data = fields.Str()
 
 
+class AirbnbRequest(StandardRequest):
+    eth_address = fields.Str(required=True, data_key='identity')
+    airbnbUserId = fields.Str(required=True)
+
+
+class AirbnbVerificationCodeResponse(StandardResponse):
+    code = fields.Str()
+
+
+class VerifyAirbnbResponse(StandardResponse):
+    signature = fields.Str()
+    claim_type = fields.Integer(data_key='claim-type')
+    data = fields.Str()
+
+
 class PhoneVerificationCode(Resource):
     def post(self):
         return handle_request(
             data=request.json,
-            handler=VerificationService.generate_phone_verification_code,
+            handler=VerificationService.send_phone_verification,
             request_schema=PhoneVerificationCodeRequest,
             response_schema=PhoneVerificationCodeResponse)
 
@@ -105,7 +124,7 @@ class EmailVerificationCode(Resource):
     def post(self):
         return handle_request(
             data=request.json,
-            handler=VerificationService.generate_email_verification_code,
+            handler=VerificationService.send_email_verification,
             request_schema=EmailVerificationCodeRequest,
             response_schema=EmailVerificationCodeResponse)
 
@@ -155,8 +174,25 @@ class VerifyTwitter(Resource):
             response_schema=VerifyTwitterResponse)
 
 
+class AirbnbVerificationCode(Resource):
+    def get(self):
+        return handle_request(
+            data=request.values,
+            handler=VerificationService.generate_airbnb_verification_code,
+            request_schema=AirbnbRequest,
+            response_schema=AirbnbVerificationCodeResponse)
+
+
+class VerifyAirbnb(Resource):
+    def post(self):
+        return handle_request(
+            data=request.json,
+            handler=VerificationService.verify_airbnb,
+            request_schema=AirbnbRequest,
+            response_schema=VerifyAirbnbResponse)
+
+
 resources = {
-    # 'hello-world-path': HelloWorldResource
     'phone/generate-code': PhoneVerificationCode,
     'phone/verify': VerifyPhone,
     'email/generate-code': EmailVerificationCode,
@@ -164,5 +200,7 @@ resources = {
     'facebook/auth-url': FacebookAuthUrl,
     'facebook/verify': VerifyFacebook,
     'twitter/auth-url': TwitterAuthUrl,
-    'twitter/verify': VerifyTwitter
+    'twitter/verify': VerifyTwitter,
+    'airbnb/generate-code': AirbnbVerificationCode,
+    'airbnb/verify': VerifyAirbnb
 }

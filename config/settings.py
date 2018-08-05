@@ -57,6 +57,7 @@ FLASK_SECRET_KEY = get_env_default('FLASK_SECRET_KEY')
 PUBLIC_ID_ENCRYPTION_KEY = get_env_default('PUBLIC_ID_ENCRYPTION_KEY')
 
 DATABASE_URL = get_env_default('DATABASE_URL')
+TEST_DATABASE_URL = get_env_default('TEST_DATABASE_URL')
 
 TEMPLATE_ROOT = os.path.join(PROJECTPATH, 'templates')
 STATIC_ROOT = os.path.join(PROJECTPATH, 'static')
@@ -68,9 +69,7 @@ SENDGRID_FROM_EMAIL = get_env_default('SENDGRID_FROM_EMAIL')
 
 SENDGRID_API_KEY = get_env_default('SENDGRID_API_KEY')
 
-TWILIO_ACCOUNT_SID = get_env_default('TWILIO_ACCOUNT_SID')
-TWILIO_AUTH_TOKEN = get_env_default('TWILIO_AUTH_TOKEN')
-TWILIO_NUMBER = get_env_default('TWILIO_NUMBER')
+TWILIO_VERIFY_API_KEY = get_env_default('TWILIO_VERIFY_API_KEY')
 
 RPC_SERVER = get_env_default('RPC_SERVER')
 RPC_PROTOCOL = get_env_default('RPC_PROTOCOL')
@@ -96,3 +95,11 @@ FCM_API_KEY = get_env_default('FCM_API_KEY')
 FCM_TITLE = get_env_default('FCM_TITLE')
 
 BIND_HOST = get_env_default("BIND_HOST")
+
+BONSAI_URL = get_env_default('BONSAI_URL')
+
+CONTRACT_DIR = get_env_default('CONTRACT_DIR') or 'contracts'
+
+RESOURCES_DIR = get_env_default('RESOURCES_DIR') or 'resources'
+
+INTERNAL_API_TOKEN = get_env_default('INTERNAL_API_TOKEN')

@@ -3,7 +3,7 @@
 import argparse
 import logging
 
-from logic.indexer_service import EventHandler
+from logic.event_handler import EventHandler
 from tools import db_utils
 from util import patches
 from util.contract import ContractHelper
@@ -61,7 +61,9 @@ def _scan_listings(dry_run):
     # between the IPFS GC and the next run of this tool.
     logging.info("hashes to unpin: %s", hashes_to_unpin)
     if hashes_to_unpin and not dry_run:
-        unpinned_hashes = set(ipfs_helper.unpin_hashes(*hashes_to_unpin)['Pins'])
+        unpinned_hashes = set(
+            ipfs_helper.unpin_hashes(
+                *hashes_to_unpin)['Pins'])
         failed_hashes = unpinned_hashes - hashes_to_unpin
         if failed_hashes:
             logging.warning("failed to unpin hashes %s", failed_hashes)

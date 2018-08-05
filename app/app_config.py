@@ -38,13 +38,16 @@ def init_api(app):
     # default. Allowed HTTP methods can be specified as well.
     manager.create_api(db_models.Listing, methods=['GET'],
                        primary_key='contract_address',
-                       results_per_page=10,)
+                       results_per_page=10,
+                       max_results_per_page=100)
     manager.create_api(db_models.Purchase, methods=['GET'],
                        primary_key='contract_address',
-                       results_per_page=10,)
+                       results_per_page=10,
+                       max_results_per_page=100)
     manager.create_api(db_models.Review, methods=['GET'],
                        primary_key='contract_address',
-                       results_per_page=10,)
+                       results_per_page=10,
+                       max_results_per_page=100)
 
 
 # App initialization only appropriate for dev/production but not tests.
@@ -52,18 +55,19 @@ def init_prod_app(app):
     app.config.from_object(__name__ + '.AppConfig')
     init_app(app)
     init_api(app)
-    log_formatter = logging.Formatter(
-        '%(asctime)s %(levelname)s [in %(pathname)s:%(lineno)d]: %(message)s')
-    log_level = logging.WARNING
+
+    # Setup logging.
     if not settings.DEBUG:
-        # This logs to stdout which is appropriate for Heroku, which saves
-        # stdout to a file,
-        # but may not be appropriate in other environments. Use a log file
-        # instead.
+        # This logs to stdout which is appropriate for Heroku,
+        # which saves stdout to a file, but may not be appropriate in
+        # other environments. Use a log file instead.
+        log_formatter = logging.Formatter(
+            '%(asctime)s %(levelname)s [in %(pathname)s:%(lineno)d]: %(message)s')
         handler = logging.StreamHandler(sys.stdout)
-        handler.setLevel(log_level)
+        handler.setLevel(logging.INFO)
         handler.setFormatter(log_formatter)
         app.logger.addHandler(handler)
     else:
         logging.config.fileConfig('debug.logging.ini')
+
     return app
