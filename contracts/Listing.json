@@ -180,7 +180,7 @@
     "contractName": "Listing",
     "networks": {},
     "ast": {
-        "absolutePath": "/opt/origin-js/source/contracts/contracts/Listing.sol",
+        "absolutePath": "/Users/yupan/origin/origin-js/contracts/contracts/Listing.sol",
         "exportedSymbols": {
             "Listing": [
                 274
@@ -200,7 +200,7 @@
                 "src": "0:23:1"
             },
             {
-                "absolutePath": "/opt/origin-js/source/contracts/contracts/Purchase.sol",
+                "absolutePath": "/Users/yupan/origin/origin-js/contracts/contracts/Purchase.sol",
                 "file": "./Purchase.sol",
                 "id": 187,
                 "nodeType": "ImportDirective",
@@ -1236,5 +1236,6 @@
             }
         ],
         "src": "0:1455:1"
-    }
+    },
+    "deployedBytecode": "0x"
 }

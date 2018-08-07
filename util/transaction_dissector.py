@@ -66,7 +66,7 @@ def dissect_transaction(current_rpc, txn_obj):
     return meta
 
 
-@register_dissector("Listing.buyListing")
+@register_dissector("UnitListing.buyListing")
 def buyListing(contractHelper, listingAddress, _unitsToBuy):
     data = get_listing(contractHelper, listingAddress)
     data["action"] = "purchase"

@@ -26,7 +26,7 @@ def get_ipfs_data(ipfs_hash, with_thumbnails = False, root = 'data'):
     return data
 
 def get_listing(contract_helper, listing_address):
-    caller = contract_helper.get_instance("Listing", listing_address).call()
+    caller = contract_helper.get_instance("UnitListing", listing_address).call()
 
     ipfs_hash = caller.ipfsHash()
     data = get_ipfs_data(ipfs_hash)

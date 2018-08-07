@@ -331,7 +331,7 @@
     "contractName": "ERC735",
     "networks": {},
     "ast": {
-        "absolutePath": "/opt/origin-js/source/contracts/contracts/identity/ERC735.sol",
+        "absolutePath": "/Users/yupan/origin/origin-js/contracts/contracts/identity/ERC735.sol",
         "exportedSymbols": {
             "ERC735": [
                 2411
@@ -2159,5 +2159,6 @@
             }
         ],
         "src": "0:1549:15"
-    }
+    },
+    "deployedBytecode": "0x"
 }

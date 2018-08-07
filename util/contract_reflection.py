@@ -69,7 +69,10 @@ def _find_address_contract(web3, address, contracts_space):
 def _generate_contract_space():
     if not CONTRACTS_LIBRARIES_SPACE:
         for contract in ContractHelper.get_all_contracts():
-            bytecode = ContractHelper.get_contract_deployed_bytecode(contract)
+            try:
+                bytecode = ContractHelper.get_contract_deployed_bytecode(contract)
+            except KeyError:
+                bytecode = ""
             CONTRACTS_LIBRARIES_SPACE[get_contract_link_name(contract)] = (contract, bytecode, extract_libraries(bytecode))
 
 def match_address_contract(web3, address, name):

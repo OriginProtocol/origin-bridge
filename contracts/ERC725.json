@@ -262,7 +262,7 @@
     "contractName": "ERC725",
     "networks": {},
     "ast": {
-        "absolutePath": "/opt/origin-js/source/contracts/contracts/identity/ERC725.sol",
+        "absolutePath": "/Users/yupan/origin/origin-js/contracts/contracts/identity/ERC725.sol",
         "exportedSymbols": {
             "ERC725": [
                 2266
@@ -1670,5 +1670,6 @@
             }
         ],
         "src": "0:1237:14"
-    }
+    },
+    "deployedBytecode": "0x"
 }
