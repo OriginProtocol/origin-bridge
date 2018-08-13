@@ -1,36 +1,37 @@
-import ipfsAPI from 'ipfs-api'
+import IPFS from 'ipfs'
 import _ from 'lodash'
 import Web3 from 'web3'
 import url from 'url'
 
 const Log = require('ipfs-log')
-
-import OrbitDB from 'orbit-db'
-import Keystore from 'orbit-db-keystore'
-
 //get the dotenv config
 require('dotenv').config()
 
-const GLOBAL_KEYS = "global"
-const CONV_INIT_PREFIX = "convo-init-"
-const CONV = "conv"
+import OrbitDB from 'orbit-db'
+import Keystore from 'orbit-db-keystore'
+import exchangeHeads from './exchange-heads'
+
+const GLOBAL_KEYS = `${process.env.MESSAGING_NAMESPACE}:global`
+const CONV_INIT_PREFIX = `${process.env.MESSAGING_NAMESPACE}:convo-init-`
+const CONV = `${process.env.MESSAGING_NAMESPACE}:conv`
 
 const web3 = new Web3(process.env.RPC_SERVER)
 
+const IPFS_WS_ADDRESS = process.env.MESSAGING_IPFS_WS_ADDRESS
 
-const ipfsURL = new url.parse(process.env.MESSAGING_IPFS_URL)
-const ipfs_opts = {host:ipfsURL.hostname, port:ipfsURL.port, protocol:ipfsURL.protocol.slice(0, -1)}
-console.log("opts:", ipfs_opts)
-
-if (process.env.MESSAGING_IPFS_AUTH_TOKEN) {
-  console.log("Auth token is:", process.env.MESSAGING_IPFS_AUTH_TOKEN)
-  ipfs_opts["headers"] = {
-    authorization: process.env.MESSAGING_IPFS_AUTH_TOKEN
-  }
-}
-const ipfs = ipfsAPI(ipfs_opts)
+const ipfs = new IPFS({
+    repo:"./ipfsrepo",
+    EXPERIMENTAL: {
+      pubsub: true,
+    },
+    config: {
+      Bootstrap: [], // it's ok to connect to more peers than this, but currently leaving it out due to noise.
+      Addresses: {
+       Swarm: [IPFS_WS_ADDRESS]
+      }
+    }
+})
 process.env.LOG = "DEBUG"
-
 
 class InsertOnlyKeystore {
   constructor() {
@@ -87,7 +88,7 @@ class InsertOnlyKeystore {
             if (obj.postFunc){
               obj.postFunc(message)
             }
-            pinIPFS(message, signature, key)
+            //pinIPFS(message, signature, key)
             return Promise.resolve(true)
           }
         }
@@ -273,7 +274,17 @@ async function saveToIpfs(ipfs, entry, signature, key) {
       // We need to make sure that the head message's hash actually
       // matches the hash given by IPFS in order to verify that the
       // message contents are authentic
-      console.warn('hash:', hash, ' from', logEntry)
+      if (entry.hash)
+      {
+        if(entry.hash != hash)
+        {
+          console.warn('mismatch hash:', hash, ' from ', entry)
+        }
+      }
+      else
+      {
+        console.warn('hash:', hash, ' from', logEntry)
+      }
       return hash
     })
 }
@@ -294,6 +305,9 @@ async function loadSnapshotDB(db)
   db.sync(queue || [])
   const snapshotData = await db._cache.get('raw_snapshot')
   if (snapshotData) {
+    for (const entry of snapshotData.values){
+      await saveToIpfs(db._ipfs, entry)
+    }
     const log = new Log(db._ipfs, snapshotData.id, snapshotData.values, snapshotData.heads, null, db._key, db.access.write)
     await db._oplog.join(log)
     await db._updateIndex()
@@ -307,33 +321,57 @@ async function startSnapshotDB(db)
   await loadSnapshotDB(db)
 }
 
-ipfs.id().then(async (peer_id) => {
-    const orbit_global = new OrbitDB(ipfs, "odb/Main", {keystore:new InsertOnlyKeystore()})
 
-    orbit_global.keystore.registerSignVerify(GLOBAL_KEYS, undefined, verifyRegistrySignature, message => {
-        handleGlobalRegistryWrite(orbit_global, message.payload)
-      })
+async function _onPeerConnected(address, peer)
+{
+  const getStore = address => this.stores[address]
+  const getDirectConnection = peer => this._directConnections[peer]
+  const onChannelCreated = channel => this._directConnections[channel._receiverID] = channel
+  const onMessage = (address, heads) => this._onMessage(address, heads)
 
-    const global_registry = await orbit_global.kvstore(GLOBAL_KEYS, { write: ['*'] })
-    rebroadcastOnReplicate(orbit_global, global_registry)
+  const channel = await exchangeHeads(
+    this._ipfs,
+    address,
+    peer,
+    getStore,
+    getDirectConnection,
+    onMessage,
+    onChannelCreated
+  )
 
-    orbit_global.keystore.registerSignVerify(CONV_INIT_PREFIX, undefined, verifyConversationSignature(global_registry),
-      message => {
-        const eth_address = message.id.substr(-42) //hopefully the last 42 is the eth address
-        onConverse(orbit_global, eth_address, message.payload)
-      })
+  if (getStore(address))
+    getStore(address).events.emit('peer', peer)
+}
 
-    orbit_global.keystore.registerSignVerify(CONV, undefined, verifyMessageSignature(global_registry))
+ipfs.on("ready", async () => {
+  // remap the peer connected to ours which will wait before exchanging heads with the same peer
+  const orbit_global = new OrbitDB(ipfs, "odb/Main", {keystore:new InsertOnlyKeystore()})
+  orbit_global._onPeerConnected = _onPeerConnected
 
-    console.log("Oribt registry started...:", global_registry.id)
+  orbit_global.keystore.registerSignVerify(GLOBAL_KEYS, undefined, verifyRegistrySignature, message => {
+    handleGlobalRegistryWrite(orbit_global, message.payload)
+  })
 
-    global_registry.events.on('ready', (address) => 
-      {
-        console.log("ready...", global_registry.all())
-      })
+  const global_registry = await orbit_global.kvstore(GLOBAL_KEYS, { write: ['*'] })
+  rebroadcastOnReplicate(orbit_global, global_registry)
 
-    // testing it's best to drop this for now
-    //global_registry.load()
-    startSnapshotDB(global_registry)
+  orbit_global.keystore.registerSignVerify(CONV_INIT_PREFIX, undefined, verifyConversationSignature(global_registry),
+    message => {
+      const eth_address = message.id.substr(-42) //hopefully the last 42 is the eth address
+      onConverse(orbit_global, eth_address, message.payload)
+    })
+
+  orbit_global.keystore.registerSignVerify(CONV, undefined, verifyMessageSignature(global_registry))
+
+  console.log("Oribt registry started...:", global_registry.id)
+
+  global_registry.events.on('ready', (address) => 
+    {
+      console.log("ready...", global_registry.all())
+    })
+
+  // testing it's best to drop this for now
+  //global_registry.load()
+  startSnapshotDB(global_registry)
 })
 
