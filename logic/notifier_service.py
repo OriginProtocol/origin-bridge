@@ -35,7 +35,8 @@ class Notification(Enum):
     SELLER_REVIEW = 13
     BUYER_REVIEW = 14
     TRANSACTION_PENDING = 15
-    INFO_TRANSACTION_PENDING = 15
+    INFO_TRANSACTION_PENDING = 16
+    NEW_MESSAGE = 17
 
 
 notification_messages = {
@@ -55,7 +56,8 @@ notification_messages = {
     Notification.BUYER_REVIEW: "Your purchase is in review",
     Notification.TRANSACTION_PENDING: "There is a transaction pending",
     Notification.INFO_TRANSACTION_PENDING: {"title": "{action} {name} pending",
-        "body": "Please approve your {action} of {name}"}
+        "body": "Please approve your {action} of {name}"},
+    Notification.NEW_MESSAGE:"You've received a new message"
 }
 
 require_verified_messages = ()  # list of types in here
@@ -78,6 +80,10 @@ def register_eth_notification(
     db.session.commit()
     logging.debug("token registered %s to %s" % (device_token, eth_address))
 
+def new_eth_message(receivers):
+    for receiver in receivers:
+        eth_address = Web3.toChecksumAddress(receiver)
+        send_notification(eth_address, Notification.NEW_MESSAGE)
 
 def send_apn_notification(message, endpoint):
     token = endpoint.device_token

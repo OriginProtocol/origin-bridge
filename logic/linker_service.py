@@ -32,6 +32,12 @@ def _hash_id(exposed_id, key):
     # let's not expose all of the key if we're just using it for hash
     return hashlib.sha3_224(("%d%s" % (exposed_id, key)).encode("utf-8")).hexdigest()[:16]
 
+def _get_meta(rpc, call):
+    if call and len(call) > 1 and call[1].get("txn_object"):
+        return dissect_transaction(rpc, call[1]["txn_object"])
+    return {}
+
+
 def generate_code(client_token, session_token, return_url, pending_call=None, user_agent = None, force_relink=False):
     if not client_token:
         #create a new uuid
@@ -59,10 +65,7 @@ def generate_code(client_token, session_token, return_url, pending_call=None, us
 
     if pending_call and not linked_obj.linked:
         pending_call["session_token"] = session_token
-        if len(pending_call.get("call", [])) > 1 and pending_call["call"][1].get("txn_object"):
-            pending_call["meta"] = dissect_transaction(None, pending_call["call"][1]["txn_object"])
-        elif "meta" in pending_call:
-            del pending_call["meta"]
+        pending_call["meta"] = _get_meta(None, pending_call.get("call"))
         linked_obj.pending_call = pending_call
         db.session.add(linked_obj)
         db.session.commit()
@@ -218,10 +221,7 @@ def call_wallet(client_token, session_token, accounts, call_id, call, return_url
         return False
     session_obj = LinkedSession.query.filter_by(linked_id = linked_obj.id, session_token = session_token).first()
 
-    if len(call) > 1:
-        meta = dissect_transaction(linked_obj.current_rpc, call[1]["txn_object"])
-    else:
-        meta = None
+    meta = _get_meta(linked_obj.current_rpc, call)
 
     call_data = {"call_id":call_id,
                 "call":call,

@@ -2,6 +2,7 @@ import IPFS from 'ipfs'
 import _ from 'lodash'
 import Web3 from 'web3'
 import url from 'url'
+import fetch from 'cross-fetch'
 
 const Log = require('ipfs-log')
 //get the dotenv config
@@ -18,6 +19,7 @@ const CONV = `${process.env.MESSAGING_NAMESPACE}:conv`
 const web3 = new Web3(process.env.RPC_SERVER)
 
 const IPFS_WS_ADDRESS = process.env.MESSAGING_IPFS_WS_ADDRESS
+const API_HOST = process.env.HOST && "http://" + process.env.HOST
 
 const ipfs = new IPFS({
     repo:"./ipfsrepo",
@@ -27,7 +29,8 @@ const ipfs = new IPFS({
     config: {
       Bootstrap: [], // it's ok to connect to more peers than this, but currently leaving it out due to noise.
       Addresses: {
-       Swarm: [IPFS_WS_ADDRESS]
+       Swarm: [IPFS_WS_ADDRESS],
+       API: ""
       }
     }
 })
@@ -124,7 +127,7 @@ function verifyRegistrySignature(signature, key, message) {
   return false
 }
 
-function verifyMessageSignature(keys_map)
+function verifyMessageSignature(orbit_global, keys_map)
 {
   return (signature, key, message, buffer) => {
     console.log("Verify Message:", message, " key: ", key, " sig: ", signature)
@@ -133,6 +136,18 @@ function verifyMessageSignature(keys_map)
     //only two addresses should have write access to here
     if (entry.address == verify_address)
     {
+      const db_store = orbit_global.stores[message.id]
+      if (API_HOST && db_store && db_store.__snapshot_loaded && db_store.access.write.includes(key))
+      {
+        const receivers = db_store.access.write.filter(address => address != key)
+        fetch(API_HOST + "/api/notifications/new-eth-message",
+          {method: "POST",
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json'},
+            body:JSON.stringify({receivers})
+            })
+      }
       return true
     }
     return false
@@ -313,6 +328,7 @@ async function loadSnapshotDB(db)
     await db._updateIndex()
     db.events.emit('replicated', db.address.toString())
   }
+  db.__snapshot_loaded = true
   db.events.emit('ready', db.address.toString(), db._oplog.heads)
 }
 
@@ -361,7 +377,7 @@ ipfs.on("ready", async () => {
       onConverse(orbit_global, eth_address, message.payload)
     })
 
-  orbit_global.keystore.registerSignVerify(CONV, undefined, verifyMessageSignature(global_registry))
+  orbit_global.keystore.registerSignVerify(CONV, undefined, verifyMessageSignature(orbit_global, global_registry))
 
   console.log("Oribt registry started...:", global_registry.id)
 

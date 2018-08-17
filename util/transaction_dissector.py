@@ -37,10 +37,17 @@ def dissect_transaction(current_rpc, txn_obj):
     gas_cost = get_eth_price(int = gas * gas_price)
     value_cost = get_eth_price(hex = txn_obj.get("value", "0x0"))
 
-    to_address = Web3.toChecksumAddress(txn_obj["to"])
+    if txn_obj.get("to"):
+        to_address = Web3.toChecksumAddress(txn_obj["to"])
+    else:
+        to_address = ""
     data = txn_obj.get("data")
 
     meta = {"to":to_address, "gas":gas_cost, "value":value_cost}
+
+    if not to_address:
+        meta["contract"] = ""
+        meta["call"] = "deploy"
 
     #grab meta data from contract and transaction
     if to_address and data:
